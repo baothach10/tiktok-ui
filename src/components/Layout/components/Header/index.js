@@ -12,7 +12,7 @@ import images from '~/assets/images';
 import AccountItem from 'src/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from 'src/components/Popper/Menu';
-import { sassTrue } from 'sass';
+import { InboxIcon, MessageIcon, SearchIcon } from 'src/components/Icons';
 
 const cx = classNames.bind(styles)
 
@@ -49,14 +49,14 @@ const MENU_ITEMS = [
 
 // Handle logic
 const handleMenuChange = (menuItem) => {
-    
+
 }
 
 
 function Header() {
     const [searchResult, setSearchResult] = useState([])
     const currentUser = true
-    
+
     useEffect(() => {
         setTimeout(() => {
             setSearchResult([])
@@ -120,7 +120,7 @@ function Header() {
                     <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                     <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        <SearchIcon className={cx('search-svg')} />
                     </button>
                 </div>
             </HeadlessTippy>
@@ -135,8 +135,14 @@ function Header() {
                         </Tippy>
 
                         <Tippy content="Messages" placement='bottom'>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                            <button className={cx('action-btn', 'message-icon')}>
+                                <MessageIcon />
+                            </button>
+                        </Tippy>
+
+                        <Tippy content="Inbox" placement='bottom'>
+                            <button className={cx('action-btn', 'inbox-icon')}>
+                                <InboxIcon />
                             </button>
                         </Tippy>
 
