@@ -13,6 +13,7 @@ import AccountItem from 'src/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from 'src/components/Popper/Menu';
 import { InboxIcon, MessageIcon, SearchIcon } from 'src/components/Icons';
+import Image from 'src/components/Image';
 
 const cx = classNames.bind(styles)
 
@@ -159,7 +160,13 @@ function Header() {
                     onChange={handleMenuChange}
                 >
                     {currentUser ? (
-                        <img src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png' className={cx('user-avatar')} alt='Nguyen Van A' />
+                        <Image 
+                        // src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png' 
+                        src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.pn'
+                        className={cx('user-avatar')} 
+                        alt='Nguyen Van A' 
+                        fallBack='https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
+                        />
                     ) : (
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
