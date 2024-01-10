@@ -1,7 +1,8 @@
 .wrapper {
     display: flex;
     align-items: center;
-    padding: 9px 1px;
+    padding: 6px 16px;
+    cursor: pointer;
 
     &:hover {
         background: rgba(22, 24, 35, 0.03);
