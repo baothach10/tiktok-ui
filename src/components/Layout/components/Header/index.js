@@ -32,7 +32,7 @@ const MENU_ITEMS = [
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
-                }
+                },
             ]
         }
     },
@@ -80,7 +80,6 @@ function Header() {
             separate: true,
         },
     ]
-
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
