@@ -11,8 +11,8 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon } from 'src/components/Icons';
 import Image from '~/components/Image';
-import Search from '~/components/Layout/Search';
-import routesConfig from '~/config/routes'
+import Search from '~/layouts/Search';
+import config from '~/config'
 
 const cx = classNames.bind(styles)
 
@@ -83,7 +83,7 @@ function Header() {
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
-            <Link to={routesConfig.home} className={cx('logo')}>
+            <Link to={config.routes.home} className={cx('logo')}>
                 <img src={images.logo} alt='TikTok logo'></img>
             </Link>
 
@@ -121,15 +121,15 @@ function Header() {
                 <Menu
                     items={currentUser ? userMenu : MENU_ITEMS}
                     onChange={handleMenuChange}
-                    
+
                 >
                     {currentUser ? (
-                        <Image 
-                        // src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png' 
-                        src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png'
-                        className={cx('user-avatar')} 
-                        alt='Nguyen Van A' 
-                        fallBack='https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
+                        <Image
+                            // src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png' 
+                            src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png'
+                            className={cx('user-avatar')}
+                            alt='Nguyen Van A'
+                            fallBack='https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
                         />
                     ) : (
                         <button className={cx('more-btn')}>

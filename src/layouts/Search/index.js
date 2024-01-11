@@ -4,13 +4,12 @@ import { useEffect, useState, useRef } from 'react';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
-import * as searchService from 'src/apiServices/searchService';
+import * as searchService from 'src/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/hooks';
-import { createStaticHandler } from '@remix-run/router';
 
 const cx = classNames.bind(styles)
 
@@ -50,7 +49,7 @@ function Search() {
         //     })
         //     .catch(() => {
         //         setLoading(false);
-        //     })        
+        //     })
     }, [debounced])
 
     const handleClear = () => {
@@ -70,11 +69,6 @@ function Search() {
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
-
-    
     return (
         // Using a wrapper <div> or <span> tag around the reference element solves this 
         //by creating a new parentNode context. 
