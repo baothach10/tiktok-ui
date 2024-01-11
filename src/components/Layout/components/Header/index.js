@@ -125,10 +125,10 @@ function Header() {
                     {currentUser ? (
                         <Image 
                         // src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png' 
-                        src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.pn'
+                        src='https://pbs.twimg.com/profile_images/1717013664954499072/2dcJ0Unw_400x400.png'
                         className={cx('user-avatar')} 
                         alt='Nguyen Van A' 
-                        // fallBack='https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
+                        fallBack='https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
                         />
                     ) : (
                         <button className={cx('more-btn')}>
