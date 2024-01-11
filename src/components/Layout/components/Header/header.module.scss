@@ -19,16 +19,14 @@
   padding: 0 var(--default-layout-horizontal-spacer);
 }
 
-// .logo {
-
-// }
-
+.logo {
+  display: flex;
+}
 
 // Actions
 .actions {
   display: flex;
   align-items: center;
-  // transform: translate(-50% -50%);
 }
 
 .message-icon {

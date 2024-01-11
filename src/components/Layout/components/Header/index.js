@@ -2,16 +2,17 @@ import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion, faEllipsisVertical, faKeyboard, faGlobe, faCloudUpload, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css'
+import { Link } from 'react-router-dom';
 
 import styles from './header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
-
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon } from 'src/components/Icons';
 import Image from '~/components/Image';
 import Search from '~/components/Layout/Search';
+import routesConfig from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -83,9 +84,9 @@ function Header() {
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
-            <div className={cx('logo')}>
+            <Link to={routesConfig.home} className={cx('logo')}>
                 <img src={images.logo} alt='TikTok logo'></img>
-            </div>
+            </Link>
 
             <Search />
 
@@ -121,6 +122,7 @@ function Header() {
                 <Menu
                     items={currentUser ? userMenu : MENU_ITEMS}
                     onChange={handleMenuChange}
+                    
                 >
                     {currentUser ? (
                         <Image 
