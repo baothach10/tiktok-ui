@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 const Image = forwardRef(function Image({src, alt, className, fallBack: customFallback = images.noImage, ...props}, ref) {
     const [fallBack, setFallBack] = useState('')
+    
     const handleError = () => {
         setFallBack(customFallback)
     }
