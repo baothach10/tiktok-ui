@@ -30,6 +30,7 @@
     position: relative;
     border-radius: 4px;
     transition: background-color 200ms ease-in-out 0s;
+    cursor: pointer;
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
