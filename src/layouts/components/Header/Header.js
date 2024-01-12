@@ -9,7 +9,7 @@ import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon } from 'src/components/Icons';
+import { InboxIcon, MessageIcon } from 'src/components/Icons/Icons';
 import Image from '~/components/Image';
 import Search from '~/layouts/Search';
 import config from '~/config'
