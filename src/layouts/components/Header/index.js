@@ -21,7 +21,7 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faGlobe} />,
         title: 'English',
         children: {
-            title: 'Language',
+            title: 'Languages',
             data: [
                 {
                     type: 'language',
