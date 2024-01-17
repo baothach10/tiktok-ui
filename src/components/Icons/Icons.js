@@ -33,3 +33,23 @@ export const UserGroupActiveIcon = ({width='3.2rem', height='3.2rem', className}
 export const LiveActiveIcon = ({width='3.2rem', height='3.2rem', className}) => (
     <svg className={className} width={width} data-e2e="" height={height} viewBox="0 0 48 48" fill="CurrentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 17.5714C6.5 14.7292 8.86029 12.5 11.6782 12.5H27.8621C30.6799 12.5 33.0402 14.7292 33.0402 17.5714V18.6843L36.745 15.9435C37.6399 15.2815 38.8324 15.1731 39.8318 15.6537C40.8365 16.1369 41.5 17.1486 41.5 18.2857V29.7143C41.5 30.8514 40.8365 31.8631 39.8318 32.3463C38.8324 32.8269 37.6399 32.7185 36.745 32.0565L33.0402 29.3158V30.4286C33.0402 33.2708 30.6799 35.5 27.8621 35.5H11.6782C8.86029 35.5 6.5 33.2708 6.5 30.4286V17.5714Z"></path><path d="M23.25 23.134C23.9167 23.5189 23.9167 24.4811 23.25 24.866L17.25 28.3301C16.5833 28.715 15.75 28.2339 15.75 27.4641L15.75 20.5359C15.75 19.7661 16.5833 19.285 17.25 19.6699L23.25 23.134Z" fill="white"></path></svg>
 )
+
+export const HeartIcon = ({width='3.2rem', height='3.2rem', className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 2.25c3 0 4.5 2 4.5 2s1.5-2 4.5-2c3.5 0 6 2.75 6 6.25 0 4-3.269 7.566-6.25 10.25C14.41 20.407 13 21.5 12 21.5s-2.45-1.101-4.25-2.75C4.82 16.066 1.5 12.5 1.5 8.5c0-3.5 2.5-6.25 6-6.25Z"></path><path fill="black" fill-opacity=".03" d="M2.402 12.2c1.187 2.497 3.357 4.727 5.348 6.55C9.55 20.399 11 21.5 12 21.5s2.41-1.093 4.25-2.75c2.98-2.684 6.25-6.25 6.25-10.25 0-.087-.002-.174-.005-.26C20.567 13.661 13.68 18.5 11.75 18.5c-1.437 0-6.14-2.687-9.348-6.3Z"></path></svg>
+)
+
+export const MessageIcon2 = ({width='3.2rem', height='3.2rem', className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 21.44C3.5 11.47 13.04 4 24 4s20.5 7.47 20.5 17.44c0 5.85-2.93 10.69-6.47 14.37a41.67 41.67 0 0 1-11.06 7.97A2.05 2.05 0 0 1 24 41.95v-3.08c-10.96 0-20.5-7.47-20.5-17.43Zm11.79 3.07a2.56 2.56 0 1 0 0-5.12 2.56 2.56 0 0 0 0 5.12Zm8.71 0a2.56 2.56 0 1 0 0-5.12 2.56 2.56 0 0 0 0 5.12Zm11.27-2.56a2.56 2.56 0 1 0-5.12 0 2.56 2.56 0 0 0 5.12 0Z"></path></svg>
+)
+
+export const FlagIcon = ({width='3.2rem', height='3.2rem', className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63V4.5Z"></path><path fill="currentColor" fillOpacity=".03" d="M4.032 4.144A1.894 1.894 0 0 0 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.489 1.489 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37V4.143Zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117.008 117.008 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133l-3.952-1.833Z"></path></svg>
+)
+
+export const ShareIcon = ({width='3.2rem', height='3.2rem', className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M10.938 3.175a.674.674 0 0 1 1.138-.488l6.526 6.215c.574.547.554 1.47-.043 1.991l-6.505 5.676a.674.674 0 0 1-1.116-.508V13.49s-6.985-1.258-9.225 2.854c-.209.384-1.023.518-.857-1.395.692-3.52 2.106-9.017 10.082-9.017V3.175Z" clipRule="evenodd"></path><path fill="#161823" fillRule="evenodd" d="m15.754 6.212 1.295 2.59a1.122 1.122 0 0 1-.268 1.349l-5.799 5.042s-.28 1.403.562 1.403c.842 0 7.578-6.174 7.578-6.174s.28-.842-.561-1.684c-.843-.842-2.807-2.526-2.807-2.526Z" clipRule="evenodd" opacity=".03"></path><path fill="url(#pc-share-44d9fe83_a)" fillRule="evenodd" d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057c3.033-3.252 7.574-2.827 7.574-2.827Z" clipRule="evenodd" opacity=".09"></path></svg>
+)
+
+export const MusicIcon = ({width='3.2rem', height='3.2rem', className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 48 48"><path d="M35 10.76a1 1 0 0 0-1.22-.98l-15.99 3.64a1 1 0 0 0-.78.97V38c.03 2.17-2.2 4.43-5.4 5.28-3.56.96-6.96-.2-7.6-2.57-.63-2.37 1.74-5.07 5.3-6.02a9.2 9.2 0 0 1 3.7-.25V14.39a5 5 0 0 1 3.9-4.87l15.98-3.64A5 5 0 0 1 39 10.76v22.36c.08 2.2-2.17 4.5-5.4 5.36-3.56.95-6.96-.2-7.6-2.57-.63-2.38 1.74-5.08 5.3-6.03a9.2 9.2 0 0 1 3.7-.25V10.76Z"></path></svg>
+)
