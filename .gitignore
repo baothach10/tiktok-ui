@@ -16,6 +16,7 @@
 
 # Fake data
 /src/assets/media
+checklist.txt
 
 # misc
 .DS_Store

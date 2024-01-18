@@ -1,40 +1,43 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0px;
-    position: relative;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    cursor: pointer;
-    flex-direction: column;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0px;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
 }
 
 .icon {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 0px;
-    border-radius: 50%;
-    transition: all 200ms ease-in-out 0s;
-    width: 48px;
-    height: 48px;
-    background-color: rgba(22, 24, 35, 0.06);
-    margin-top: 8px;
-    margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0px;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out 0s;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(22, 24, 35, 0.06);
+  margin-top: 8px;
+  margin-bottom: 6px;
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+  }
 }
 
 .number {
-    color: rgba(22, 24, 35, 0.75);
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
 }

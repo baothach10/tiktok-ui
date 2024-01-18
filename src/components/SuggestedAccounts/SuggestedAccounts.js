@@ -12,7 +12,9 @@ function SuggestedAccounts({label}) {
             <SuggestedAccountItem/>
             <SuggestedAccountItem/>
             <SuggestedAccountItem/>
-
+            <SuggestedAccountItem/>
+            <SuggestedAccountItem/>
+            <SuggestedAccountItem/>
             <p className={cx('more-btn')}>See more</p>
         </div>
     );

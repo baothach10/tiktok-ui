@@ -1,15 +1,15 @@
 import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEllipsisVertical, faKeyboard, faGlobe, faCloudUpload, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faEllipsisVertical, faKeyboard, faGlobe, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css'
 import { Link } from 'react-router-dom';
 
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import {Menu} from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon } from 'src/components/Icons/Icons';
+import { InboxIcon, MessageIcon, PlusIcon } from 'src/components/Icons/Icons';
 import Image from '~/components/Image';
 import Search from '~/layouts/Search';
 import config from '~/config'
@@ -92,8 +92,9 @@ function Header() {
                 {currentUser ? (
                     <>
                         <Tippy delay={[0, 200]} content="Upload Video" placement='bottom'>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faCloudUpload} />
+                            <button className={cx('action-btn', 'upload-btn')}>
+                                <span className={cx('upload-icon')}><PlusIcon/></span>
+                                <p>Upload</p>
                             </button>
                         </Tippy>
 
@@ -114,7 +115,6 @@ function Header() {
                     <>
                         <Button text>Upload</Button>
                         <Button primary>Log in</Button>
-
                     </>
                 )}
                 <Menu
