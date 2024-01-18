@@ -11,8 +11,11 @@ const cx = classNames.bind(styles)
 function PostContent({ id, video, likes, comments, saved, share }) {
     const [played, setPlayed] = useState(true);
     const [muted, setMuted] = useState(true);
+    const [videoUploadWidth, setVideoUploadWidth] = useState(0);
+    const [videoUploadHeight, setVideoUploadHeight] = useState(0);
     const vidRef = useRef(null);
-    let videoDuration;
+    const videoDuration = 0;
+
 
     const handlePlay = () => {
         setPlayed(prev => !prev)
@@ -22,9 +25,9 @@ function PostContent({ id, video, likes, comments, saved, share }) {
         setMuted(prev => !prev)
     }
 
-    const handleLoadedMetadata = () => {
-        console.log(vidRef.current.duration)
-        console.log(vidRef.current.currentTime)
+    function handleLoadedMetadata() {
+        setVideoUploadWidth(vidRef?.current?.videoWidth)
+        setVideoUploadHeight(vidRef?.current?.videoHeight)
     }
 
     useEffect(() => {
@@ -35,13 +38,19 @@ function PostContent({ id, video, likes, comments, saved, share }) {
         }
     }, [played]);
 
+    useEffect(() => {
+        if (videoUploadWidth > videoUploadHeight) {
+            vidRef.current.style.backgroundColor = 'black'
+        }
+    }, [videoUploadWidth, videoUploadHeight])
+
     return (
         <div id={`video-wrapper-${id}`} className={cx('video-wrapper')}>
 
             <div className={cx('video-player')} onClick={handlePlay}>
-                <video id={`post-${id}`} ref={vidRef} src={video} width={'336px'} height={'600px'} preload="true" muted={muted} loop={true} controls={true} />
+                <video id={`post-${id}`} ref={vidRef} src={video} width={'336px'} height={'600px'} preload="true" muted={muted} loop={true} controls={true} className={cx('video')} onLoadedMetadata={handleLoadedMetadata} />
             </div>
-
+            {/* {(vidRef?.current?.videoHeight < vidRef?.current?.videoWidth) ? console.log('yes'): console.log('no')} */}
             {/* <div className={cx('video-toolbar-wrapper')}>
                 <div className={cx('video-toolbar')}>
                     <div className={cx('play-pause-btn')} onClick={handlePlay} >
