@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 
-import styles from './Home.module.scss'
+import styles from './Home.module.scss';
 import Post from "~/layouts/components/Post";
 
 const cx = classNames.bind(styles)
