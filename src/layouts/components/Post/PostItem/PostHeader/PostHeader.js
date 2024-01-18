@@ -1,28 +1,27 @@
 import classNames from "classnames/bind";
-import styles from './PostItem.module.scss';
+import styles from './PostHeader.module.scss';
 import PropTypes from 'prop-types'
 
 import Button from "~/components/Button";
 import { useState } from "react";
-import { MusicIcon } from "src/components/Icons";
+import { MusicIcon } from "~/components/Icons";
 
 const cx = classNames.bind(styles)
 
-function PostHeader({ nickname, fullName, title, music, video }) {
+function PostHeader({ id, nickname, fullName, title, music }) {
     const [expanded, setExpanded] = useState(false)
-    console.log('title ->', title)
     const handleClick = () => {
         setExpanded(pre => !pre)
     }
 
-    const ButtonR = ({ name, onClick, className }) => (
+    const ReadMoreButton = ({ name, onClick, className }) => (
         <div className={cx(className)} onClick={onClick}>
             {name}
         </div>
     )
 
     return (
-        <div className={cx("header-wrapper")}>
+        <div id={`header-${id}`} className={cx("header-wrapper")}>
 
             <div className={cx("name-wrapper")}>
                 <a href="/profile" className={cx('post-nickname')}>{nickname}</a>
@@ -38,7 +37,7 @@ function PostHeader({ nickname, fullName, title, music, video }) {
                     <div className={cx('title')}>
                         <div className={cx('content')}>
                             {title.slice(0, 115)}...
-                            <ButtonR name='more' onClick={handleClick} className={cx('more-btn')} />
+                            <ReadMoreButton name='more' onClick={handleClick} className={cx('more-btn')} />
                         </div>
 
                     </div>
@@ -52,7 +51,7 @@ function PostHeader({ nickname, fullName, title, music, video }) {
                 )}
             </div>
             {title.length > 114 && expanded && (
-                <ButtonR name='less' onClick={handleClick} className={cx('more-btn')} />
+                <ReadMoreButton name='less' onClick={handleClick} className={cx('more-btn')} />
             )}
 
             <div className={cx('music-link-container')}>
@@ -68,12 +67,11 @@ function PostHeader({ nickname, fullName, title, music, video }) {
 }
 
 PostHeader.propTypes = {
+    id: PropTypes.string.isRequired,
     nickname: PropTypes.string.isRequired,
     fullName: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     music: PropTypes.string.isRequired,
-    video: PropTypes.string.isRequired,
-
 }
 
 export default PostHeader;
