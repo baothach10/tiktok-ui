@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
+import PropTypes from 'prop-types'
 
 import styles from './SuggestedAccounts.module.scss'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +10,7 @@ import SuggestedAccountPreview from './SuggestedAccountPreview';
 
 const cx = classNames.bind(styles)
 
-function SuggestedAccountItem() {
+function SuggestedAccountItem({ avatar, nickname, fullName, checked}) {
     const renderPreview = (props) => {
         return (
             <div className={cx('preview')} tabIndex='-1' {...props}>
@@ -32,17 +33,16 @@ function SuggestedAccountItem() {
                 <div className={cx('account-item')}>
                     <img
                         className={cx('avatar')}
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png"
-                        alt='user'
+                        src={avatar}
+                        alt={`${nickname}'s avatar`}
                     />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
-                            <strong>ABC</strong>
-                            <FontAwesomeIcon className={cx('checked')} icon={faCheckCircle} />
+                            <strong>{nickname}</strong>
+                            {!!checked && <FontAwesomeIcon className={cx('checked')} icon={faCheckCircle} />}
                         </p>
-                        <p className={cx('name')}>ABC</p>
+                        <p className={cx('full-name')}>{fullName}</p>
                     </div>
-
                 </div>
             </Tippy>
         </div>
@@ -50,7 +50,10 @@ function SuggestedAccountItem() {
 }
 
 SuggestedAccountItem.propTypes = {
-
+    avatar: PropTypes.string.isRequired,
+    nickname: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
+    checked: PropTypes.bool,
 }
 
 export default SuggestedAccountItem;
