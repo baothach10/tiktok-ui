@@ -1,3 +1,4 @@
+// Wrapper
 .wrapper {
   flex: 1 1 auto;
   overflow: hidden;
@@ -17,12 +18,11 @@
 .container {
 }
 
+// Profile Header
+
 .profile-header {
   padding-right: 92px;
   margin-bottom: 20px;
-}
-
-.profile-body {
 }
 
 .info {
@@ -197,6 +197,9 @@
   text-overflow: ellipsis;
 }
 
+// Profile Body
+// Video Feed
+
 .layout-container {
   display: flex;
   flex: 1 1 auto;
@@ -246,8 +249,7 @@
   padding: 0px 32px;
   cursor: pointer;
   text-align: center;
-  color: rgb(22, 24, 35);
-
+  color: rgb(115, 116, 123);
 }
 
 .favorite,
@@ -282,8 +284,52 @@
   transition: transform 0.3s ease 0s;
 }
 
+// Main detail
+
 .playlist-container {
 }
 
 .three-column-container {
 }
+
+.main-detail-wrapper {
+    flex: 0 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 490px;
+    align-items: center;
+    margin: 0px auto;
+}
+
+.main-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    // object-fit: cover;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: rgb(22, 24, 35);
+    margin-top: 24px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.75);
+    margin-top: 8px;
+}
+

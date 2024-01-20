@@ -8,7 +8,7 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 import { users } from "src/fakedata";
-import { LinkIcon, LockIcon } from "src/components/Icons";
+import { FlagIcon, LinkIcon, LockIcon, PersonIcon } from "src/components/Icons";
 import { useEffect, useRef, useState } from "react";
 
 const cx = classNames.bind(styles)
@@ -39,41 +39,62 @@ function Profile({
         }
     }
 
+    const content = {
+        'video-feed-1': {
+            title: 'Upload your first video',
+            description: 'Your videos will appear here',
+        },
+        'video-feed-2': {
+            title: 'Favorite posts',
+            description: 'Your favorite posts will appear here.',
+        },
+        'video-feed-3': {
+            title: 'No liked videos yet',
+            description: 'Videos you liked will appear here',
+        }
+    }
+
     const postRef = useRef()
     const favoriteRef = useRef()
     const likedRef = useRef()
     const bottomLineRef = useRef()
 
-    const [isChosen, setIsChosen] = useState('')
+    const [isChosen, setIsChosen] = useState('video-feed-1')
     const [xCor, setXCor] = useState(0)
     const [width, setWidth] = useState(0)
 
     useEffect(() => {
         setWidth(postRef?.current?.offsetWidth);
         setIsChosen(postRef?.current?.id);
-        
     }, [])
 
     useEffect(() => {
-
+        switch (isChosen) {
+            case 'video-feed-1':
+                postRef.current.style.color = 'rgb(22, 24, 35)';
+                favoriteRef.current.style.color = '';
+                likedRef.current.style.color = '';
+                break;
+            case 'video-feed-2':
+                favoriteRef.current.style.color = 'rgb(22, 24, 35)';
+                postRef.current.style.color = '';
+                likedRef.current.style.color = '';
+                break;
+            case 'video-feed-3':
+                likedRef.current.style.color = 'rgb(22, 24, 35)';
+                favoriteRef.current.style.color = '';
+                postRef.current.style.color = '';
+                break;
+            default:
+                console.log('error')
+        }
     }, [isChosen])
 
-    const handleClick1 = () => {
-        setXCor(postRef?.current?.offsetLeft);
-        setWidth(postRef?.current?.offsetWidth);
-        setIsChosen(postRef?.current?.id);
-    }
-
-    const handleClick2 = () => {
-        setXCor(favoriteRef?.current?.offsetLeft);
-        setWidth(favoriteRef?.current?.offsetWidth);
-        setIsChosen(favoriteRef?.current?.id);
-    }
-
-    const handleClick3 = () => {
-        setXCor(likedRef?.current?.offsetLeft);
-        setWidth(likedRef?.current?.offsetWidth);
-        setIsChosen(likedRef?.current?.id);
+    const handleClick = (ref) => {
+        setXCor(ref?.current?.offsetLeft);
+        setWidth(ref?.current?.offsetWidth);
+        setIsChosen(ref?.current?.id);
+        
     }
 
     function handleMouseOver(ref) {
@@ -150,18 +171,18 @@ function Profile({
                     <div className={cx('profile-body')}>
                         <div className={cx('layout-container')}>
                             <div className={cx('video-feed')}>
-                                <p id={'video-feed-1'} className={cx('post')} ref={postRef} onClick={handleClick1} onMouseOver={() => handleMouseOver(postRef)} onMouseLeave={handleMouseLeave}>
+                                <p id={'video-feed-1'} className={cx('post')} ref={postRef} onClick={() => handleClick(postRef)} onMouseOver={() => handleMouseOver(postRef)} onMouseLeave={handleMouseLeave}>
                                     <span>
                                         Videos
                                     </span>
                                 </p>
-                                <p id={'video-feed-2'} className={cx('favorite')} ref={favoriteRef} onClick={handleClick2} onMouseOver={() => handleMouseOver(favoriteRef)} onMouseLeave={handleMouseLeave}>
+                                <p id={'video-feed-2'} className={cx('favorite')} ref={favoriteRef} onClick={() => handleClick(favoriteRef)} onMouseOver={() => handleMouseOver(favoriteRef)} onMouseLeave={handleMouseLeave}>
                                     <LockIcon className={cx('lock-icon')} />
                                     <span>
                                         Favorites
                                     </span>
                                 </p>
-                                <p id={'video-feed-3'} className={cx('like')} ref={likedRef} onClick={handleClick3} onMouseOver={() => handleMouseOver(likedRef)} onMouseLeave={handleMouseLeave}>
+                                <p id={'video-feed-3'} className={cx('like')} ref={likedRef} onClick={() => handleClick(likedRef)} onMouseOver={() => handleMouseOver(likedRef)} onMouseLeave={handleMouseLeave}>
                                     <LockIcon className={cx('lock-icon')} />
                                     <span>
                                         Liked
@@ -176,7 +197,13 @@ function Profile({
                                 <div className={cx('three-column-container')}></div>
                             )}
                             {!!!posts && !!!playlist && (
-                                <div>Hello</div>
+                                <div className={cx('main-detail-wrapper')}>
+                                    <div className={cx('main-detail-container')}>
+                                        {(isChosen === 'video-feed-2') ? <FlagIcon className={cx('logo')}/> : <PersonIcon className={cx('logo')}/>}
+                                        <p className={cx('title')}>{content[isChosen]['title']}</p>
+                                        <p className={cx('description')}>{content[isChosen]['description']}</p>
+                                    </div>
+                                </div>
                             )}
                         </div>
                     </div>

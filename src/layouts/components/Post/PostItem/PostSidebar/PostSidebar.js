@@ -2,30 +2,30 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 
 import styles from './PostSidebar.module.scss';
-import { HeartIcon, MessageIcon2, FlagIcon, ShareIcon } from "~/components/Icons";
+import { HeartIcon, MessageIcon2, FlagIconSolid, ShareIcon } from "~/components/Icons";
 
 const cx = classNames.bind(styles)
 
-function PostSidebar({likes, comments, saved, share}) {
+function PostSidebar({ likes, comments, saved, share }) {
     return (
         <div className={cx('wrapper')}>
             <button className={cx('btn')}>
-                <span className={cx('icon')}><HeartIcon/></span>
+                <span className={cx('icon')}><HeartIcon /></span>
                 <strong className={cx('number')}>{comments}</strong>
             </button>
             <button className={cx('btn')}>
-                <span className={cx('icon')}><MessageIcon2/></span>
+                <span className={cx('icon')}><MessageIcon2 /></span>
                 <strong className={cx('number')}>{likes}</strong>
             </button>
             <button className={cx('btn')}>
-                <span className={cx('icon')}><FlagIcon/></span>
+                <span className={cx('icon')}><FlagIconSolid /></span>
                 <strong className={cx('number')}>{saved}</strong>
             </button>
             <button className={cx('btn')}>
-                <span className={cx('icon')}><ShareIcon/></span>
+                <span className={cx('icon')}><ShareIcon /></span>
                 <strong className={cx('number')}>{share}</strong>
             </button>
-        </div>  
+        </div>
     );
 }
 
