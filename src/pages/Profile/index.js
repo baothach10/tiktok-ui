@@ -23,7 +23,7 @@ function Profile({
     followers = users[0].followers,
     bio = users[0].bio,
     link = users[0].link,
-    playlist = users[0].playlist,
+    playlists = users[0].playlists,
     posts = users[0].videos,
 }) {
 
@@ -190,13 +190,35 @@ function Profile({
                                 </p>
                                 <div ref={bottomLineRef} className={cx('bottom-line')} style={{ transform: `translateX(${xCor}px)`, width: `${width}px` }}></div>
                             </div>
-                            {!!playlist && (
-                                <div className={cx('playlist-container')}></div>
+                            {!!playlists && (
+                                <div className={cx('outer-playlist-container')}>
+                                    <p className={cx('title')}>Playlists</p>
+                                        <div className={cx('playlist-container')}>
+                                            <div className={cx('inner-playlist-container')}>
+                                                {playlists.map((playlist, index) => {
+                                                    return (
+                                                        <a key={index} href={'/'} className={cx('playlist-link')}>
+                                                            <div className={cx('playlist-card-container')}>
+                                                                <div className={cx('playlist-card-cover-container')}>
+                                                                    <img src={playlist.cover} alt={`${playlist.cover} cover`} className={cx('playlist-card-cover')}/>
+                                                                </div>
+                                                                <div className={cx('playlist-card-info-container')}>
+                                                                    <p className={cx('playlist-title')}>{playlist.title}</p>
+                                                                    <p className={cx('playlist-description')}>{`${playlist.posts.length} posts`}</p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    );
+                                                })}
+                                            </div>
+                                            <div></div>
+                                        </div>
+                                </div>
                             )}
                             {!!posts && (
                                 <div className={cx('three-column-container')}></div>
                             )}
-                            {!!!posts && !!!playlist && (
+                            {!!!posts && !!!playlists && (
                                 <div className={cx('main-detail-wrapper')}>
                                     <div className={cx('main-detail-container')}>
                                         {(isChosen === 'video-feed-2') ? <FlagIcon className={cx('logo')}/> : <PersonIcon className={cx('logo')}/>}
@@ -222,7 +244,7 @@ Profile.propTypes = {
     followers: PropTypes.number,
     bio: PropTypes.string,
     link: PropTypes.string,
-    playlist: PropTypes.array,
+    playlists: PropTypes.array,
     posts: PropTypes.array,
 }
 

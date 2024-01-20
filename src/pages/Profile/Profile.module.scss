@@ -3,10 +3,17 @@
   flex: 1 1 auto;
   overflow: hidden;
   font-family: var(--font-family);
+  position: relative;
+}
+
+@media screen and (min-width: 1472px) and (max-width: 1671px) {
+    .wrapper {
+      max-width: 1328px;
+    }
 }
 
 .layout {
-  max-width: 1776px;
+  max-width: 1328px;
   display: flex;
   padding: 32px 24px 36px;
   flex-direction: column;
@@ -286,50 +293,164 @@
 
 // Main detail
 
-.playlist-container {
-}
-
 .three-column-container {
 }
 
 .main-detail-wrapper {
-    flex: 0 0 auto;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 490px;
-    align-items: center;
-    margin: 0px auto;
+  flex: 0 0 auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 490px;
+  align-items: center;
+  margin: 0px auto;
 }
 
 .main-detail-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0px auto;
 }
 
 .logo {
-    width: 90px;
-    height: 90px;
-    // object-fit: cover;
+  width: 90px;
+  height: 90px;
+  // object-fit: cover;
 }
 
 .title {
-    font-size: 24px;
-    line-height: 30px;
-    font-weight: 700;
-    color: rgb(22, 24, 35);
-    margin-top: 24px;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  color: rgb(22, 24, 35);
+  margin-top: 24px;
 }
 
 .description {
-    font-size: 16px;
-    line-height: 21px;
-    font-weight: 400;
-    color: rgba(22, 24, 35, 0.75);
-    margin-top: 8px;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 400;
+  color: rgba(22, 24, 35, 0.75);
+  margin-top: 8px;
 }
 
+// Playlists
+.outer-playlist-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: rgb(22, 24, 35);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 24px 0px 16px;
+}
+
+.playlist-container {
+  width: 100%;
+  height: 94px;
+  // overflow-x: visible;
+  // overflow: hidden;
+  position: relative;
+}
+
+.inner-playlist-container {
+  width: 100%;
+  height: 94px;
+  overflow: auto hidden;
+  display: flex;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+// Hide scrollbar but keep functionality
+.inner-playlist-container::-webkit-scrollbar {
+  display: none;
+}
+
+.playlist-link {
+  width: calc(33% - 4px);
+  height: 94px;
+  // margin-inline-end: 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgba(22, 24, 35, 0.03);
+  overflow: hidden hidden;
+  &:not(:last-child) {
+    // padding: 12px;
+    margin-inline-end: 16px;
+    padding: 12px;
+  }
+
+  &:last-child {
+    padding: 12px 0 12px 12px;
+  }
+}
+
+.playlist-card-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.playlist-card-cover-container {
+  width: 72px;
+  height: 72px;
+  border-radius: 2px;
+  margin-inline-end: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: none;
+}
+
+.playlist-card-cover {
+  width: 72px;
+  height: 72px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.playlist-card-info-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 4px 0px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.playlist-title {
+  color: rgb(22, 24, 35);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.playlist-description {
+  color: rgba(22, 24, 35, 0.6);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
