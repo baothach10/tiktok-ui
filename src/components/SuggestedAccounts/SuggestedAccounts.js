@@ -16,8 +16,8 @@ function SuggestedAccounts({label}) {
                     <SuggestedAccountItem
                         key={index}
                         avatar={user.avatar}
-                        nickname={user.nickname}
-                        fullName={user.fullName}
+                        nickname={(user.nickname.length > 15) ? `${user.nickname.slice(0, 14)}...` : user.nickname}
+                        fullName={(user.fullName.length > 15) ? `${user.fullName.slice(0, 16)}...` : user.fullName}
                         checked={user.checked}
                     />
                 );

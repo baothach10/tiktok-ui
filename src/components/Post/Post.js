@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import PropTypes from 'prop-types';
 
 import styles from './Post.module.scss';
-import PostItem from "src/layouts/components/Post/PostItem/PostItem";
+import PostItem from "src/components/Post/PostItem/PostItem";
 
 const cx = classNames.bind(styles)
 

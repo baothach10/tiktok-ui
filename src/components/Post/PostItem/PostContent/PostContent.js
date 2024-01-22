@@ -48,13 +48,25 @@ function PostContent({ id, video, likes, comments, saved, share }) {
         <div id={`video-wrapper-${id}`} className={cx('video-wrapper')}>
 
             <div className={cx('video-player')} onClick={handlePlay}>
-                <video id={`post-${id}`} ref={vidRef} src={video} width={'336px'} height={'600px'} preload="true" muted={muted} loop={true} controls={true} className={cx('video')} onLoadedMetadata={handleLoadedMetadata} />
+                <video
+                    id={`post-${id}`}
+                    ref={vidRef}
+                    src={video}
+                    width={'336px'}
+                    height={'600px'}
+                    preload="true"
+                    muted={muted}
+                    loop={true}
+                    controls={true}
+                    className={cx('video')}
+                    onLoadedMetadata={handleLoadedMetadata}
+                />
             </div>
             {/* {(vidRef?.current?.videoHeight < vidRef?.current?.videoWidth) ? console.log('yes'): console.log('no')} */}
             {/* <div className={cx('video-toolbar-wrapper')}>
                 <div className={cx('video-toolbar')}>
                     <div className={cx('play-pause-btn')} onClick={handlePlay} >
-                        {played ? <PauseIcon /> : <PlayIcon />}
+                        {played ? <PauseIcon /> : <PlayIconSolid />}
                     </div>
                     <div className={cx('sound-btn')} onClick={handleMute}>
                         {muted ? <SoundLessIcon /> : <SoundIcon />}

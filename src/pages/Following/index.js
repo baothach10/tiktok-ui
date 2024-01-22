@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 
 import styles from './Following.module.scss';
-import Post from "~/layouts/components/Post";
+import Post from "~/components/Post";
 import { posts } from "src/fakedata";
 
 const cx = classNames.bind(styles)

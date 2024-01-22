@@ -54,7 +54,7 @@ export const MusicIcon = ({ width = '3.2rem', height = '3.2rem', className }) =>
     <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor" viewBox="0 0 48 48"><path d="M35 10.76a1 1 0 0 0-1.22-.98l-15.99 3.64a1 1 0 0 0-.78.97V38c.03 2.17-2.2 4.43-5.4 5.28-3.56.96-6.96-.2-7.6-2.57-.63-2.37 1.74-5.07 5.3-6.02a9.2 9.2 0 0 1 3.7-.25V14.39a5 5 0 0 1 3.9-4.87l15.98-3.64A5 5 0 0 1 39 10.76v22.36c.08 2.2-2.17 4.5-5.4 5.36-3.56.95-6.96-.2-7.6-2.57-.63-2.38 1.74-5.08 5.3-6.03a9.2 9.2 0 0 1 3.7-.25V10.76Z"></path></svg>
 )
 
-export const PlayIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const PlayIconSolid = ({ width = '3.2rem', height = '3.2rem', className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className={className} width={width} height={height} fill="currentColor" ><path d="M43 26.6a3 3 0 0 0 0-5.2L14.5 4.95a3 3 0 0 0-4.5 2.6v32.9a3 3 0 0 0 4.5 2.6L43 26.6Z"></path></svg>
 )
 
@@ -88,4 +88,8 @@ export const PersonIcon = ({ width = '3.2rem', height = '3.2rem', className }) =
 
 export const FlagIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
     <svg className={className} width={width} height={height} viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="m36.206 48.785 24.891 18.36V7.676c0-1.317-.406-2.162-.884-2.658-.463-.482-1.25-.903-2.563-.903H14.76c-1.312 0-2.1.421-2.563.903-.478.496-.884 1.34-.884 2.657v59.472l24.892-18.36Zm0 3.835L11.944 70.516a2.331 2.331 0 0 1-3.715-1.877V7.674c0-3.934 2.481-6.646 6.533-6.646H57.65c4.051 0 6.533 2.712 6.533 6.646V68.64a2.331 2.331 0 0 1-3.716 1.877L36.206 52.62Z"></path></svg>
+)
+
+export const PlayIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+    <svg className={className} width={width} height={height} data-e2e="" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 10.554V37.4459L38.1463 24L16 10.554ZM12 8.77702C12 6.43812 14.5577 4.99881 16.5569 6.21266L41.6301 21.4356C43.5542 22.6038 43.5542 25.3962 41.6301 26.5644L16.5569 41.7873C14.5577 43.0012 12 41.5619 12 39.223V8.77702Z"></path></svg>
 )

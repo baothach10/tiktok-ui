@@ -116,9 +116,9 @@ function Header() {
                     </>
                 )}
                 <Menu
+                    className={cx('popper-wrapper')}
                     items={currentUser ? userMenu : MENU_ITEMS}
                     onChange={handleMenuChange}
-
                 >
                     {currentUser ? (
                         <Image

@@ -50,6 +50,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn}
 
     return (
         <Tippy
+            className={cx('tippy-menu')}
             hideOnClick={hideOnClick}
             interactive
             delay={[0, 800]}
