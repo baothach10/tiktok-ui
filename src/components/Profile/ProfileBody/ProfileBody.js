@@ -3,26 +3,15 @@ import PropTypes from 'prop-types';
 
 import styles from './ProfileBody.module.scss'
 
-import { FlagIcon, LockIcon, PersonIcon, PlayIcon } from "src/components/Icons";
+import {LockIcon} from "src/components/Icons";
 import { useEffect, useRef, useState } from "react";
+import ProfilePlaylist from "./ProfilePlaylist";
+import ProfilePost from "./ProfilePost";
+import ProfilePostEmpty from "./ProfilePostEmpty";
 
 const cx = classNames.bind(styles)
 
 function ProfileBody({ posts, playlists, format }) {
-    const content = {
-        'video-feed-1': {
-            title: 'Upload your first video',
-            description: 'Your videos will appear here',
-        },
-        'video-feed-2': {
-            title: 'Favorite posts',
-            description: 'Your favorite posts will appear here.',
-        },
-        'video-feed-3': {
-            title: 'No liked videos yet',
-            description: 'Videos you liked will appear here',
-        }
-    }
 
     const postRef = useRef()
     const favoriteRef = useRef()
@@ -115,84 +104,13 @@ function ProfileBody({ posts, playlists, format }) {
                 <div ref={bottomLineRef} className={cx('bottom-line')} style={{ transform: `translateX(${xCor}px)`, width: `${width}px` }}></div>
             </div>
             {!!playlists && (
-                <div className={cx('outer-playlist-container')}>
-                    <p className={cx('title')}>Playlists</p>
-                    <div className={cx('playlist-container')}>
-                        <div className={cx('inner-playlist-container')}>
-                            {playlists.map((playlist, index) => {
-                                return (
-                                    <a key={index} href={'/'} className={cx('playlist-link')}>
-                                        <div className={cx('playlist-card-container')}>
-                                            <div className={cx('playlist-card-cover-container')}>
-                                                <img src={playlist.cover} alt={`${playlist.cover} cover`} className={cx('playlist-card-cover')} />
-                                            </div>
-                                            <div className={cx('playlist-card-info-container')}>
-                                                <p className={cx('playlist-title')}>{playlist.title}</p>
-                                                <p className={cx('playlist-description')}>{`${playlist.posts.length} posts`}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                );
-                            })}
-                        </div>
-                        <div className={cx('right-btn')}></div>
-                    </div>
-                    <p className={cx('title')}>Videos</p>
-                </div>
+                <ProfilePlaylist playlists={playlists}/>
             )}
             {!!posts && (
-                <div className={cx('three-column-container')}>
-                    <div className={cx('post-item-list')} mode={'compact'}>
-                        {posts.map((post, index) => {
-                            return (
-                                <div key={index} className={cx('post-item-container')}>
-                                    <div className={cx('post-media-container')}>
-                                        <a className={cx('post-link')} href={'/'}>
-                                            <div className={cx('player-container')}>
-                                                <div className={cx('video-container')}>
-                                                    <div className={cx('video-content')}>
-                                                        <span>
-                                                            <video
-                                                                src={post.video}
-                                                                preload="true"
-                                                                muted={true}
-                                                                loop={true}
-                                                                onMouseOver={e => e.target.play()}
-                                                                onMouseOut={e => { e.target.pause(); e.target.currentTime = 0; }}
-                                                            />
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div className={cx('video-footer')}>
-                                                    <PlayIcon className={cx('play-icon')} />
-                                                    <strong>
-                                                        {format(post.views)}
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className={cx('post-description-wrapper')}>
-                                        <div className={cx('post-description-container')}>
-                                            <a href={"/"} className={cx('post-description')}>
-                                                {(post.title.length > 23) ? `${post.title.slice(0, 23)}...` : post.title}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+                <ProfilePost posts={posts} format={format}/>
             )}
             {!!!posts && !!!playlists && (
-                <div className={cx('main-detail-wrapper')}>
-                    <div className={cx('main-detail-container')}>
-                        {(isChosen === 'video-feed-2') ? <FlagIcon className={cx('logo')} /> : <PersonIcon className={cx('logo')} />}
-                        <p className={cx('title')}>{content[isChosen]['title']}</p>
-                        <p className={cx('description')}>{content[isChosen]['description']}</p>
-                    </div>
-                </div>
+                <ProfilePostEmpty isChosen={isChosen}/>
             )}
         </div>
     );

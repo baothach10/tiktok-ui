@@ -1,0 +1,40 @@
+.main-detail-wrapper {
+    flex: 0 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 490px;
+    align-items: center;
+    margin: 0px auto;
+  }
+  
+  .main-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px auto;
+  }
+  
+  .logo {
+    width: 90px;
+    height: 90px;
+    // object-fit: cover;
+  }
+  
+  .title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: rgb(22, 24, 35);
+    margin-top: 24px;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.75);
+    margin-top: 8px;
+  }

@@ -56,4 +56,16 @@ function ProfileHeader({avatar, nickname, fullName, checked, following, follower
     );
 }
 
+ProfileHeader.propTypes = {
+    avatar: PropTypes.string,
+    nickname: PropTypes.string,
+    fullName: PropTypes.string,
+    likes: PropTypes.number,
+    following: PropTypes.number,
+    followers: PropTypes.number,
+    bio: PropTypes.string,
+    link: PropTypes.string,
+    format: PropTypes.func
+}
+
 export default ProfileHeader;
