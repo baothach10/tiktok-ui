@@ -4,12 +4,77 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './ProfileHeader.module.scss'
-import Button from "src/components/Button";
-import { LinkIcon } from "src/components/Icons";
+import Button from "~/components/Button";
+import { DeniedIcon, EmailIcon, EmbedIcon, FacebookIcon, FlagStaffIcon, LinkIcon, LinkIconRound, LinkedInIcon, MoreIcon, RedditIcon, ShareIcon, TelegramIcon, TwitterIcon, WhatsappIcon } from "~/components/Icons";
+import { Menu } from '~/components/Popper/Menu';
+import { ExpandIcon } from "src/components/Icons";
 
 const cx = classNames.bind(styles)
 
-function ProfileHeader({avatar, nickname, fullName, checked, following, followers, likes, bio, link, format}) {
+function ProfileHeader({ avatar, nickname, fullName, checked, following, followers, likes, bio, link, format }) {
+
+    const shareChannels = [
+        {
+            icon: <EmbedIcon className={cx('channel-icon')}/>,
+            title: "Embed",
+            to: '/',
+        },
+        {
+            icon: <FacebookIcon className={cx('channel-icon')}/>,
+            title: "Share to Facebook",
+            to: '/',
+        },
+        {
+            icon: <WhatsappIcon className={cx('channel-icon')}/>,
+            title: "Share to WhatsApp",
+            to: '/',
+        },
+        {
+            icon: <TwitterIcon className={cx('channel-icon')}/>,
+            title: "Share to Twitter",
+            to: '/',
+        },
+        {
+            icon: <LinkIconRound className={cx('channel-icon')}/>,
+            title: "Copy link",
+            to: '/',
+        },
+        {
+            icon: <LinkedInIcon className={cx('channel-icon')}/>,
+            title: "Share to LinkedIn",
+            to: '/',
+        },
+        {
+            icon: <RedditIcon className={cx('channel-icon')}/>,
+            title: "Share to Reddit",
+            to: '/',
+        },
+        {
+            icon: <TelegramIcon className={cx('channel-icon')}/>,
+            title: "Share to Telegram",
+            to: '/',
+        },
+        {
+            icon: <EmailIcon className={cx('channel-icon')}/>,
+            title: "Share to Email",
+            to: '/',
+        },
+    ]
+
+    const moreItems = [
+        {
+            icon: <FlagStaffIcon className={cx('more-icon')}/>,
+            title: "Report",
+            to: '/',
+        },
+        {
+            icon: <DeniedIcon className={cx('more-icon')}/>,
+            title: "Block",
+            to: '/',
+            separate: true,
+        },
+    ]
+
     return (
         <>
             <div className={cx('info')}>
@@ -51,6 +116,28 @@ function ProfileHeader({avatar, nickname, fullName, checked, following, follower
                         <span className={cx('link')}>{(link.slice(8,).length > 25) ? `${link.slice(8,).slice(0, 24)}...` : link.slice(8,)}</span>
                     </a>
                 )}
+            </div>
+            <div className={cx('buttons-container')}>
+                <Menu
+                    items={shareChannels}
+                    hideOnClick={false}
+                    expandButton={<ExpandIcon/>}
+                    width={'280px'}
+                    height={'264px'}
+                >
+                    <span>
+                        <ShareIcon className={cx('share-btn')} />
+                    </span>
+                </Menu>
+                <Menu
+                    items={moreItems}
+                    hideOnClick={false}
+                    width={'180px'}
+                >
+                    <span>
+                        <MoreIcon className={cx('more-btn')} />
+                    </span>
+                </Menu>
             </div>
         </>
     );

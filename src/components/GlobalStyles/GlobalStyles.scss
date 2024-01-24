@@ -98,7 +98,6 @@ a {
   font-weight: 600;
 }
 
-
 // Custom Tippy tooltip
 body {
   .tippy-box {
@@ -108,15 +107,24 @@ body {
     font-size: 1.6rem;
     line-height: 2.2rem;
   }
-  .tippy-arrow {
-    color: rgba(84, 84, 84, 0.92);
+
+  .tippy-header {
+    .tippy-content {
+      padding: 8px 9px;
+    }
+    .tippy-arrow {
+      color: rgba(84, 84, 84, 0.92);
+    }
   }
 
-  .tippy-content {
-    padding: 8px 9px;
-  }
-  
   .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
     top: -8px;
+  }
+
+  .tippy-button-container {
+    background-color: transparent;
+    .tippy-arrow {
+      display: none;
+    }
   }
 }

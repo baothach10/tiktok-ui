@@ -31,9 +31,17 @@
 // Profile Header
 
 .profile-header {
+  max-width: 624px;
   padding-right: 92px;
+  padding-left: 0px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  flex: 0 0 auto;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 // Profile Body
-

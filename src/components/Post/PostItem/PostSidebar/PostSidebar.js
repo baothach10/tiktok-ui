@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 
 import styles from './PostSidebar.module.scss';
-import { HeartIcon, MessageIcon2, FlagIconSolid, ShareIcon } from "~/components/Icons";
+import { HeartIcon, MessageIcon2, FlagIconSolid, ShareIconSolid } from "~/components/Icons";
 
 const cx = classNames.bind(styles)
 
@@ -22,7 +22,7 @@ function PostSidebar({ likes, comments, saved, share }) {
                 <strong className={cx('number')}>{saved}</strong>
             </button>
             <button className={cx('btn')}>
-                <span className={cx('icon')}><ShareIcon /></span>
+                <span className={cx('icon')}><ShareIconSolid /></span>
                 <strong className={cx('number')}>{share}</strong>
             </button>
         </div>

@@ -96,13 +96,13 @@ function Header() {
                             <p>Upload</p>
                         </button>
 
-                        <Tippy content="Messages" placement='bottom'>
+                        <Tippy content="Messages" placement='bottom' className='tippy-header'>
                             <button className={cx('action-btn', 'message-icon')}>
                                 <MessageIcon />
                             </button>
                         </Tippy>
 
-                        <Tippy content="Inbox" placement='bottom'>
+                        <Tippy content="Inbox" placement='bottom' className='tippy-header'>
                             <button className={cx('action-btn', 'inbox-icon')}>
                                 <InboxIcon />
                             </button>

@@ -1,62 +1,96 @@
 // Menu wrapper
 .menu-list {
-    width: 224px;
-    .menu-item {
-        margin-left: 0;
-    }
+  font-family: 'TikTokDisplayFont', sans-serif;
+  width: 224px;
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  .menu-item {
+    margin-left: 0;
+  }
 }
 
 .menu-popper {
-    padding-bottom: 8px;
-    display: flex;
-    flex-direction: column;
-
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .menu-body {
-    overflow-y: auto;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 // Menu item
 
 .menu-item {
-    width: 100%;
-    justify-content: flex-start;
-    border-radius: 0;
-    font-weight: 500;
-    padding: 11px 16px;
-    line-height: 1.8rem;
-    font-weight: 600;
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 0;
+  padding: 11px 16px;
+  line-height: 1.8rem;
+  font-weight: 600;
 
-    &.separate {
-        border-top: 1px solid rgba(22, 24, 35, 0.12);
-    }
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
 
-    &:hover {
-        background-color: rgba(22,24,35,0.03);
-    }
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
 }
 
 // Header
 .header {
-    position: relative;
-    height: 50px;
-    margin-top: -8px;
-    flex-shrink: 0;
+  color: var(--black);
+  font-weight: 400;
+  position: relative;
+  height: 50px;
+  margin-top: -8px;
+  flex-shrink: 0;
 }
 
 .back-btn {
-    width: 50px;
-    height: 100%;
-    background-color: transparent;
-    cursor: pointer;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .header-title {
-    font-weight: 500;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+// Other components
+
+.arrow {
+  display: block;
+  right: 15px;
+  width: 24px;
+  height: 8px;
+  position: absolute;
+  top: 0px;
+//   fill: red;
+}
+
+.expand-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 16px;
+  position: relative;
+  margin: 0px 4px;
+}
+
+.expand-btn {
+  width: 24px;
+  height: 24px;
 }

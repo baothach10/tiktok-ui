@@ -9,19 +9,20 @@ import { users } from "src/fakedata";
 import ProfileHeader from "src/components/Profile/ProfileHeader";
 
 const cx = classNames.bind(styles)
+const testUser = users[0]
 
 function Profile({
-    avatar = users[0].avatar,
-    nickname = users[0].nickname,
-    fullName = users[0].fullName,
-    checked = users[0].checked,
-    likes = users[0].likes,
-    following = users[0].following,
-    followers = users[0].followers,
-    bio = users[0].bio,
-    link = users[0].link,
-    playlists = users[0].playlists,
-    posts = users[0].videos,
+    avatar = testUser.avatar,
+    nickname = testUser.nickname,
+    fullName = testUser.fullName,
+    checked = testUser.checked,
+    likes = testUser.likes,
+    following = testUser.following,
+    followers = testUser.followers,
+    bio = testUser.bio,
+    link = testUser.link,
+    playlists = testUser.playlists,
+    posts = testUser.videos,
 }) {
 
     function format(number) {

@@ -52,6 +52,8 @@
   text-overflow: ellipsis;
   text-align: left;
   word-break: break-word;
+  display: flex;
+  align-items: center;
 }
 
 .checked {
@@ -95,7 +97,6 @@
 
 .info-number {
   color: rgb(22, 24, 35);
-  font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -168,4 +169,50 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.buttons-container {
+  position: absolute;
+  top: 11px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 18px;
+  right: 1px;
+}
+
+.share-btn {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  position: relative;
+  right: 5px;
+}
+
+.more-btn {
+  width: 24px;
+  height: 24px;
+  fill: currentcolor;
+  position: relative;
+  right: 3px;
+}
+
+.channel-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.more-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
 }
