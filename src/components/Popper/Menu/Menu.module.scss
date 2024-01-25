@@ -14,13 +14,16 @@
   padding-bottom: 8px;
   display: flex;
   flex-direction: column;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
 }
 
 .menu-body {
-  overflow-y: auto;
+  position: relative;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  max-height: 448px;
+  overflow: hidden;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -78,19 +81,21 @@
   height: 8px;
   position: absolute;
   top: 0px;
-//   fill: red;
+  //   fill: red;
 }
 
 .expand-btn-container {
+  // background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 16px;
+  padding: 6px 16px;
   position: relative;
   margin: 0px 4px;
 }
 
 .expand-btn {
+  color: var(--black);
   width: 24px;
   height: 24px;
 }

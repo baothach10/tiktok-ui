@@ -5,9 +5,8 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './ProfileHeader.module.scss'
 import Button from "~/components/Button";
-import { DeniedIcon, EmailIcon, EmbedIcon, FacebookIcon, FlagStaffIcon, LinkIcon, LinkIconRound, LinkedInIcon, MoreIcon, RedditIcon, ShareIcon, TelegramIcon, TwitterIcon, WhatsappIcon } from "~/components/Icons";
+import { DeniedIcon, EmailIcon, EmbedIcon, FacebookIcon, FlagStaffIcon, LinkIcon, LinkIconRound, LinkedInIcon, MoreIcon, RedditIcon, ShareIcon, TelegramIcon, TwitterIcon, WhatsappIcon, ExpandIcon, LineIcon, PinterestIcon } from "~/components/Icons";
 import { Menu } from '~/components/Popper/Menu';
-import { ExpandIcon } from "src/components/Icons";
 
 const cx = classNames.bind(styles)
 
@@ -57,6 +56,16 @@ function ProfileHeader({ avatar, nickname, fullName, checked, following, followe
         {
             icon: <EmailIcon className={cx('channel-icon')}/>,
             title: "Share to Email",
+            to: '/',
+        },
+        {
+            icon: <LineIcon className={cx('channel-icon')}/>,
+            title: "Share to Line",
+            to: '/',
+        },
+        {
+            icon: <PinterestIcon className={cx('channel-icon')}/>,
+            title: "Share to Pinterest",
             to: '/',
         },
     ]
@@ -123,7 +132,7 @@ function ProfileHeader({ avatar, nickname, fullName, checked, following, followe
                     hideOnClick={false}
                     expandButton={<ExpandIcon/>}
                     width={'280px'}
-                    height={'264px'}
+                    maxHeight={'250px'}
                 >
                     <span>
                         <ShareIcon className={cx('share-btn')} />

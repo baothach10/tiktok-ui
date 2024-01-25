@@ -15,16 +15,11 @@ const defaultFn = () => {
 
 }
 
-function Menu({ children, items = [], hideOnClick = false, expandButton, width, height, onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, expandButton, width, maxHeight, onChange = defaultFn }) {
 
-    const wrapperRef = useRef()
+    const [expanded, setExpanded] = useState(false)
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
-
-    useEffect(() => {
-        wrapperRef?.current?.style.setProperty('width', width, 'important') 
-        wrapperRef?.current?.style.setProperty('height', height, 'important') 
-    }, [height, width])
 
     const renderItems = () => {
         return current.data.map((item, index) => {
@@ -48,25 +43,49 @@ function Menu({ children, items = [], hideOnClick = false, expandButton, width, 
         setHistory(prev => prev.slice(0, prev.length - 1))
     }
 
+    const handleExpand = (e) => {
+        e.currentTarget.previousElementSibling.style.maxHeight = '448px'
+        e.currentTarget.previousElementSibling.style.overflow = 'visible'
+        e.currentTarget.style.display = 'none'
+        setExpanded(true)
+    }
+
+    const handleStrink = (e) => {
+        e.currentTarget.nextSibling.style.display = 'flex';
+        e.currentTarget.style.maxHeight = maxHeight;
+        e.currentTarget.style.overflow = 'hidden';
+        setExpanded(false)
+    }
+
+
     const renderResult = (attrs) => (
         <div
-            ref={wrapperRef}
             className={cx('menu-list')}
             tabIndex="-1"
             style={{
-                height: height,
                 width: width,
             }}
         >
             <PopperWrapper className={cx('menu-popper')}>
                 {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
-                <div className={cx('menu-body')}>
+                <div
+                    onMouseLeave={(e) => {
+                        if (expanded) {
+                            handleStrink(e)
+                        }
+                    }}
+                    className={cx('menu-body')}
+                    style={{
+                        maxHeight: maxHeight,
+                    }}
+
+                >
                     {renderItems()}
                 </div>
                 {!!expandButton && (
-                    <a href='/' className={cx('expand-btn-container')}>
+                    <div className={cx('expand-btn-container')} onClick={(e) => handleExpand(e)}>
                         <span className={cx('expand-btn')}>{expandButton}</span>
-                    </a>
+                    </div>
                 )}
             </PopperWrapper>
             <ArrowIcon className={cx('arrow')} />
@@ -81,7 +100,7 @@ function Menu({ children, items = [], hideOnClick = false, expandButton, width, 
             <Tippy
                 hideOnClick={hideOnClick}
                 interactive
-                delay={[0, 800]}
+                delay={[0, 300]}
                 offset={[12, 8]}
                 placement='bottom-end'
                 onHide={handleResetMenu}
@@ -99,6 +118,8 @@ Menu.propTypes = {
     items: PropTypes.array,
     hideOnClick: PropTypes.bool,
     expandButton: PropTypes.node,
+    maxHeight: PropTypes.string,
+    width: PropTypes.string,
     onChange: PropTypes.func,
 }
 
