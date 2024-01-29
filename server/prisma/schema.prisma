@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  avatar   String    @default("server/public/assets/images/placeholder-user.png")
+  nickname String
+  fullName String
+  checked  Boolean   @default(false)
+  following BigInt      @default(0)
+  followers BigInt      @default(0)
+  likes    BigInt       @default(0)
+  bio      String?
+  link     String?
+  videos   Post[]   
+  playlists Playlist[]
+  assignedAt DateTime @default(now())
+  @@map("users")
+} 
+
+model Playlist {
+  id       Int       @id @default(autoincrement())
+  cover    String    
+  title    String
+  user     User      @relation(fields: [userID], references: [id])
+  userID   Int
+  posts    PlaylistPost[]
+  assignedAt DateTime @default(now())
+  @@map("playlists")
+} 
+
+model Post {
+  id       Int       @id @default(autoincrement())
+  title    String
+  music    String    @default("")
+  video    String
+  likes    BigInt       @default(0)
+  comments BigInt       @default(0)
+  saved    BigInt       @default(0)
+  share    BigInt       @default(0)
+  views    BigInt       @default(0)
+  user     User      @relation(fields: [userID], references: [id])
+  userID   Int
+  playlists PlaylistPost[]
+  assignedAt DateTime @default(now())
+  @@map("posts")
+} 
+
+model PlaylistPost {
+  post     Post     @relation(fields: [postID], references: [id])
+  postID   Int
+  playlist Playlist  @relation(fields: [playlistID], references: [id])
+  playlistID Int
+  assignedAt DateTime @default(now())
+  @@id([playlistID, postID])
+  @@map("playlistPosts")
+}
+
