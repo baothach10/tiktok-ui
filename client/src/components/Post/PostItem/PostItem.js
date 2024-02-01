@@ -17,8 +17,6 @@ function PostItem({ id, nickname, fullName, title, music, video, likes, comments
                 fullName={fullName}
                 title={title}
                 music={music}
-                video={video}
-
             />
             <PostContent
                 id={id}

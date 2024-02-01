@@ -16,9 +16,9 @@ model User {
   nickname String
   fullName String
   checked  Boolean   @default(false)
-  following BigInt      @default(0)
-  followers BigInt      @default(0)
-  likes    BigInt       @default(0)
+  following Int      @default(0)
+  followers Int      @default(0)
+  likes    Int       @default(0)
   bio      String?
   link     String?
   videos   Post[]   
@@ -43,11 +43,11 @@ model Post {
   title    String
   music    String    @default("")
   video    String
-  likes    BigInt       @default(0)
-  comments BigInt       @default(0)
-  saved    BigInt       @default(0)
-  share    BigInt       @default(0)
-  views    BigInt       @default(0)
+  likes    Int       @default(0)
+  comments Int       @default(0)
+  saved    Int       @default(0)
+  share    Int       @default(0)
+  views    Int       @default(0)
   user     User      @relation(fields: [userID], references: [id])
   userID   Int
   playlists PlaylistPost[]

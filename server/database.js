@@ -2,9 +2,9 @@ const { Sequelize } = require('sequelize');
 // import Sequelize from 'sequelize';
 
 // Create a Sequelize instance
-const db = new Sequelize('tiktok_db', 'root', '123123123', {
-  host: '127.0.0.1',
-  port: 3306,
+const db = new Sequelize(process.env.MYSQL_DB, process.env.DB_USER, process.env.DB_PASS, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   dialect: 'mysql',
 });
 

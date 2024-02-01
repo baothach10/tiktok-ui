@@ -2,11 +2,20 @@ import classNames from "classnames/bind";
 
 import styles from './Following.module.scss';
 import Post from "~/components/Post";
-import { posts } from "src/fakedata";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles)
 
 function Following() {
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('http://localhost:4000/api/posts').then(res => res.json());
+            setPosts(response)
+        }
+        fetchData()
+    }, [])
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>

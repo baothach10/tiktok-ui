@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const routesHandler = require('./routes/handler.js');
 const cors = require("cors")
 // const mongoose = require('mongoose'); //MongoDB
-require('dotenv/config');
+require('dotenv').config();
 const associations = require('./models/associations.js')
 
 // import express from 'express';

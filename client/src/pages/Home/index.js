@@ -11,31 +11,27 @@ function Home() {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        const fetchA = async () => {
-            const data = await fetch('http://localhost:4000/api/posts', {
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            setPosts(await data.json())
-
+        async function fetchData() {
+            const response = await fetch('http://localhost:4000/api/posts').then(res => res.json());
+            setPosts(response)
         }
-        fetchA()
+        fetchData()
     }, [])
 
     return (
+        posts.length > 0 &&
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 {posts?.map(post => (
                     <Post
                         key={post.id}
                         id={post.id}
-                        avatar={post.avatar}
-                        nickname={post.nickname}
-                        fullName={post.fullName}
+                        avatar={post.user.avatar}
+                        nickname={post.user.nickname}
+                        fullName={post.user.fullName}
                         title={post.title}
                         music={post.music}
-                        video={require(post.video)}
+                        video={process.env.REACT_APP_DB_URL_HEADER + post.video}
                         likes={post.likes}
                         comments={post.comments}
                         saved={post.saved}

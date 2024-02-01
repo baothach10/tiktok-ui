@@ -3,11 +3,21 @@ import classNames from "classnames/bind";
 
 import styles from './SuggestedAccounts.module.scss'
 import SuggestedAccountItem from './SuggestedAccountItem';
-import { users } from 'src/fakedata';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles)
 
 function SuggestedAccounts({label}) {
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('http://localhost:4000/api/users').then(res => res.json());
+            setUsers(response)
+        }
+        fetchData()
+    }, [])
+
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
