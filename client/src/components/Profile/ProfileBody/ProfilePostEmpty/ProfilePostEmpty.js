@@ -35,7 +35,7 @@ function ProfilePostEmpty({isChosen}) {
 }
 
 ProfilePostEmpty.propTypes = {
-    isChosen: PropTypes.bool
+    isChosen: PropTypes.string
 }
 
 export default ProfilePostEmpty;

@@ -1,7 +1,10 @@
-import classNames from 'classnames/bind'
+import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Tippy from '@tippyjs/react/headless';
-import PropTypes from 'prop-types'
+import Tippy from '@tippyjs/react';
+import PropTypes from 'prop-types';
+
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // optional for styling
 
 import styles from './SuggestedAccounts.module.scss'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +13,14 @@ import SuggestedAccountPreview from './SuggestedAccountPreview';
 
 const cx = classNames.bind(styles)
 
-function SuggestedAccountItem({ avatar, nickname, fullName, checked}) {
+function SuggestedAccountItem({ user }) {
     const renderPreview = (props) => {
         return (
             <div className={cx('preview')} tabIndex='-1' {...props}>
                 <PopperWrapper>
-                    <SuggestedAccountPreview/>
+                    <SuggestedAccountPreview
+                        user={user}
+                    />
                 </PopperWrapper>
             </div>
         )
@@ -24,24 +29,25 @@ function SuggestedAccountItem({ avatar, nickname, fullName, checked}) {
     return (
         <div>
             <Tippy
-                offset={[-25,0]}
+                offset={[-25, 0]}
                 interactive
-                delay={[800, 0]}
+                delay={[500,0]}
                 placement='bottom'
-                render={renderPreview}
+                content={renderPreview()}
+                className='tippy-button-container'
             >
-                <div className={cx('account-item')}>
+                <div className={cx('account-item')} id={user.id}>
                     <img
                         className={cx('avatar')}
-                        src={avatar}
-                        alt={`${nickname}'s avatar`}
+                        src={user.avatar}
+                        alt={`${user.nickname}'s avatar`}
                     />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
-                            <strong>{nickname}</strong>
-                            {!!checked && <FontAwesomeIcon className={cx('checked')} icon={faCheckCircle} />}
+                            <strong>{(user.nickname.length > 15) ? `${user.nickname.slice(0, 14)}...` : user.nickname}</strong>
+                            {!!user.checked && <FontAwesomeIcon className={cx('checked')} icon={faCheckCircle} />}
                         </p>
-                        <p className={cx('full-name')}>{fullName}</p>
+                        <p className={cx('full-name')}>{(user.fullName.length > 15) ? `${user.fullName.slice(0, 16)}...` : user.fullName}</p>
                     </div>
                 </div>
             </Tippy>
@@ -50,10 +56,7 @@ function SuggestedAccountItem({ avatar, nickname, fullName, checked}) {
 }
 
 SuggestedAccountItem.propTypes = {
-    avatar: PropTypes.string.isRequired,
-    nickname: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
-    checked: PropTypes.bool,
+    user: PropTypes.object.isRequired,
 }
 
 export default SuggestedAccountItem;

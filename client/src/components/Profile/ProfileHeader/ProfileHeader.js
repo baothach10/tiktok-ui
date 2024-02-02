@@ -7,10 +7,11 @@ import styles from './ProfileHeader.module.scss'
 import Button from "~/components/Button";
 import { DeniedIcon, EmailIcon, EmbedIcon, FacebookIcon, FlagStaffIcon, LinkIcon, LinkIconRound, LinkedInIcon, MoreIcon, RedditIcon, ShareIcon, TelegramIcon, TwitterIcon, WhatsappIcon, ExpandIcon, LineIcon, PinterestIcon } from "~/components/Icons";
 import { Menu } from '~/components/Popper/Menu';
+import { format } from "~/pages/Profile";
 
 const cx = classNames.bind(styles)
 
-function ProfileHeader({ avatar, nickname, fullName, checked, following, followers, likes, bio, link, format }) {
+function ProfileHeader({ avatar, nickname, fullName, checked, following, followers, likes, bio, link}) {
 
     const shareChannels = [
         {
@@ -161,7 +162,6 @@ ProfileHeader.propTypes = {
     followers: PropTypes.number,
     bio: PropTypes.string,
     link: PropTypes.string,
-    format: PropTypes.func
 }
 
 export default ProfileHeader;

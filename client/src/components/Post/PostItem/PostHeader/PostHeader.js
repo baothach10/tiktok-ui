@@ -67,7 +67,7 @@ function PostHeader({ id, nickname, fullName, title, music }) {
 }
 
 PostHeader.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     nickname: PropTypes.string.isRequired,
     fullName: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

@@ -1,22 +1,13 @@
 import classNames from "classnames/bind";
+import { useSelector } from "react-redux";
 
 import styles from './Home.module.scss';
 import Post from "~/components/Post";
-import { useEffect, useState } from "react";
-// import axios from "axios";
 
 const cx = classNames.bind(styles)
 
 function Home() {
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://localhost:4000/api/posts').then(res => res.json());
-            setPosts(response)
-        }
-        fetchData()
-    }, [])
+    const posts = useSelector(state => state.posts.postsList)
 
     return (
         posts.length > 0 &&

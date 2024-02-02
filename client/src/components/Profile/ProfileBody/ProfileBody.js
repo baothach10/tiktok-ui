@@ -8,10 +8,11 @@ import { useEffect, useRef, useState } from "react";
 import ProfilePlaylist from "./ProfilePlaylist";
 import ProfilePost from "./ProfilePost";
 import ProfilePostEmpty from "./ProfilePostEmpty";
+import { format } from "~/pages/Profile";
 
 const cx = classNames.bind(styles)
 
-function ProfileBody({ posts, playlists, format }) {
+function ProfileBody({ posts, playlists }) {
 
     const postRef = useRef()
     const favoriteRef = useRef()
@@ -119,7 +120,6 @@ function ProfileBody({ posts, playlists, format }) {
 ProfileBody.propTypes = {
     playlists: PropTypes.array,
     posts: PropTypes.array,
-    format: PropTypes.func,
 }
 
 export default ProfileBody;

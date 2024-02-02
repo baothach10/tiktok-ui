@@ -1,34 +1,28 @@
 import classNames from "classnames/bind";
+import { useSelector } from "react-redux";
 
 import styles from './Following.module.scss';
 import Post from "~/components/Post";
-import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles)
 
 function Following() {
-    const [posts, setPosts] = useState([])
+    const posts = useSelector(state => state.posts.postsList)
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://localhost:4000/api/posts').then(res => res.json());
-            setPosts(response)
-        }
-        fetchData()
-    }, [])
     return (
+        posts.length > 0 &&
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 {posts.map(post => (
                     <Post 
                         key={post.id}
                         id={post.id}
-                        avatar={post.avatar}
-                        nickname={post.nickname}
-                        fullName={post.fullName}
+                        avatar={post.user.avatar}
+                        nickname={post.user.nickname}
+                        fullName={post.user.fullName}
                         title={post.title}
                         music={post.music}
-                        video={post.video}
+                        video={process.env.REACT_APP_DB_URL_HEADER + post.video}
                         likes={post.likes}
                         comments={post.comments}
                         saved={post.saved}

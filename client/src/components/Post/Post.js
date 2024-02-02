@@ -35,7 +35,7 @@ function Post({ id, avatar, nickname, fullName, title, music, video, likes, comm
 }
 
 Post.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     avatar: PropTypes.string.isRequired,
     nickname: PropTypes.string.isRequired,
     fullName: PropTypes.string.isRequired,

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import styles from './ProfilePost.module.scss'
 import { PlayIcon } from "src/components/Icons";
+import { format } from "~/pages/Profile";
 
 const cx = classNames.bind(styles)
 
-function ProfilePost({posts, format}) {
+function ProfilePost({posts}) {
     return (
         <div className={cx('three-column-container')}>
             <div className={cx('post-item-list')} mode={'compact'}>
@@ -56,7 +57,6 @@ function ProfilePost({posts, format}) {
 
 ProfilePost.propTypes = {
     posts: PropTypes.array,
-    format: PropTypes.func,
 }
 
 export default ProfilePost;

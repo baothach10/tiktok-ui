@@ -22,6 +22,7 @@
 // Suggested Account Items
 
 .account-item {
+    position: relative;
     padding: 8px;
     display: flex;
     flex-direction: row;
@@ -68,5 +69,37 @@
     margin-left: 8px;
 }
 
+// .tippy-content {
+//     background-color: white !important;
+// }
 
+// .tippy-box {
+    
+//     padding: 0 !important;
+// }
+
+// .tippy-container {
+//     // position: relative;
+//     // padding: -10px !important;
+//     // background-color: red !important;
+//     // color: red !important;
+//     .tippy-content {
+//         padding: 0;
+//         background-color: red !important;
+//     }
+//     // // background-color: transparent !important;
+//     // // padding: 0 !important;
+//     // // margin: 0 !important;
+//     // // .tippy-content {
+//     // //     background-color: red !important;
+//     // // }
+//     // & > .tippy-arrow {
+//     //     color: red !important;
+//     // }
+// }
+
+// .tippy-box[data-theme~='white'] {
+//     background-color: white;
+//     color: white;
+//   }
 

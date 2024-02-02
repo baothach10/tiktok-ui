@@ -93,7 +93,7 @@ function PostContent({ id, video, likes, comments, saved, share }) {
 }
 
 PostContent.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     video: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     comments: PropTypes.number.isRequired,
