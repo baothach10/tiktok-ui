@@ -58,6 +58,14 @@ function Profile({
 
     // const posts = posts.
 
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const profileResponse = await fetch('http://localhost:4000/api/@:nickname', {
+                
+    //         }).then(res => res.json());
+    //     }
+    // })
+
     const users = useSelector(state => state.users.usersList)
     const posts = useSelector(state => state.posts.postsList)
     const playlists = useSelector(state => state.playlists.playlistsList)

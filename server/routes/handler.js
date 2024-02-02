@@ -428,9 +428,9 @@ router.get('/api/playlists', async (req, res) => {
     res.json(playlists)
 })
 
-router.get('/api/', (req, res) => {
+// router.get('/api/', (req, res) => {
     
-})
+// })
 
 
 // router.get('/api/home', async (req, res) => {

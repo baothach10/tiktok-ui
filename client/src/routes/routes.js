@@ -21,6 +21,8 @@ const publicRoutes = [
     { path: config.routes.search, component: SearchPage, layout: null },
 ]
 
+
+// Need token for these routes
 const privateRoutes = [
 
 ]

@@ -2,12 +2,10 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 import PropTypes from 'prop-types';
-
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css'; // optional for styling
+import { Link } from 'react-router-dom';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './SuggestedAccounts.module.scss'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import SuggestedAccountPreview from './SuggestedAccountPreview';
 
@@ -31,12 +29,12 @@ function SuggestedAccountItem({ user }) {
             <Tippy
                 offset={[-25, 0]}
                 interactive
-                delay={[500,0]}
+                delay={[500, 0]}
                 placement='bottom'
                 content={renderPreview()}
                 className='tippy-button-container'
             >
-                <div className={cx('account-item')} id={user.id}>
+                <Link className={cx('account-item')} id={user.id} to={`/@${user.nickname}`}>
                     <img
                         className={cx('avatar')}
                         src={user.avatar}
@@ -49,7 +47,7 @@ function SuggestedAccountItem({ user }) {
                         </p>
                         <p className={cx('full-name')}>{(user.fullName.length > 15) ? `${user.fullName.slice(0, 16)}...` : user.fullName}</p>
                     </div>
-                </div>
+                </Link>
             </Tippy>
         </div>
     );
