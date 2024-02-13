@@ -2,11 +2,16 @@ import classNames from "classnames/bind";
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { createSelector } from 'reselect';
 
 import styles from './Profile.module.scss';
 import ProfileBody from "~/components/Profile/ProfileBody";
 
 import ProfileHeader from "src/components/Profile/ProfileHeader";
+import { selectAllPosts, selectPostsById } from "src/features/posts/postsSlice";
+import { selectUserByNickname } from "src/features/users/usersSlice";
+import { selectPlaylistsById } from "src/features/playlists/playlistsSlice";
 
 const cx = classNames.bind(styles)
 
@@ -41,7 +46,7 @@ function Profile({
     // const [playlists, setPlaylists] = useState([])
 
 
-    
+
 
     // useEffect(() => {
     //     async function fetchData() {
@@ -61,17 +66,41 @@ function Profile({
     // useEffect(() => {
     //     async function fetchData() {
     //         const profileResponse = await fetch('http://localhost:4000/api/@:nickname', {
-                
+
     //         }).then(res => res.json());
     //     }
     // })
 
-    const users = useSelector(state => state.users.usersList)
-    const posts = useSelector(state => state.posts.postsList)
-    const playlists = useSelector(state => state.playlists.playlistsList)
-    const test = 0
-    const testUser = users[test]
+    // const users = useSelector(state => state.users.usersList)
 
+    // Cách 1
+    // fetch api dùng window.location.href gửi nickname xuống backend bằng fetch rồi lấy data lưu vào posts và playlists
+
+    // const posts = useSelector(state => state.posts.postsList)
+    // const posts = useSelector(selectAllPosts)
+    // const playlists = useSelector(state => state.playlists.playlistsList)
+    // const test = 0
+    // const testUser = users[test]
+
+    // const currentUser = users.find(user => user.nickname === nickname.slice(1,))
+    // const currentPosts = posts.filter((post) => post.userID === currentUser.id)
+    // const currentPlaylists = playlists.filter((playlist) => playlist.userID === currentUser.id)
+
+
+    // retrieve userID
+
+    const { nickname } = useParams()
+    const currentUser = useSelector((state) => selectUserByNickname(state, nickname.slice(1,)))
+
+    const selectRelatedData = createSelector(
+        (state) => state,
+        (state) => ({
+            currentPosts: selectPostsById(state, currentUser.id),
+            currentPlaylists: selectPlaylistsById(state, currentUser.id),
+        })
+    );
+
+    const { currentPosts, currentPlaylists } = useSelector(selectRelatedData);
 
     return (
         <div className={cx('wrapper')}>
@@ -79,21 +108,21 @@ function Profile({
                 <div className={cx('container')}>
                     <div className={cx('profile-header')}>
                         {<ProfileHeader
-                            avatar={testUser.avatar}
-                            nickname={testUser.nickname}
-                            fullName={testUser.fullName}
-                            checked={testUser.checked}
-                            following={testUser.following}
-                            followers={testUser.followers}
-                            likes={testUser.likes}
-                            bio={testUser.bio}
-                            link={testUser.link}
+                            avatar={currentUser.avatar}
+                            nickname={currentUser.nickname}
+                            fullName={currentUser.fullName}
+                            checked={currentUser.checked}
+                            following={currentUser.following}
+                            followers={currentUser.followers}
+                            likes={currentUser.likes}
+                            bio={currentUser.bio}
+                            link={currentUser.link}
                         />}
                     </div>
                     <div className={cx('profile-body')}>
                         {<ProfileBody
-                            posts={testUser.posts}
-                            playlists={testUser.playlists}
+                            posts={currentPosts}
+                            playlists={currentPlaylists}
                             format={format}
                         />}
                     </div>

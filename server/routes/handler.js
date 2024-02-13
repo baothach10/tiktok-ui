@@ -6,14 +6,14 @@ const Playlist = require('../models/Playlists.js');
 const db = require('../database.js');
 // const { sequelize } = require('../models');
 const { PrismaClient } = require('@prisma/client');
-const { where } = require('sequelize');
 const prisma = new PrismaClient()
 
 
-router.get('/', async (req, res) => {
-    await db.sync();
-    res.end('All models were synchronized successfully.')
-})
+
+// router.get('/', async (req, res) => {
+//     await db.sync();
+//     res.end('All models were synchronized successfully.')
+// })
 
 router.get('/api/create_dummy_data', async (req, res) => {
     const users = [
@@ -423,13 +423,27 @@ router.get('/api/playlists', async (req, res) => {
     const playlists = await prisma.playlist.findMany({
         include: {
             user: true,
+            posts: true,
         }
     })
     res.json(playlists)
 })
 
+// router.post('/api/users', async (req, res) => {
+//     console.log(req.body.name)
+//     const testing = await prisma.user.findFirst({
+//         where: {
+//             nickname: req.body.name,
+//         }
+//     })
+//     res.json(testing)
+// })
+
+// router.get()
+
+
 // router.get('/api/', (req, res) => {
-    
+
 // })
 
 

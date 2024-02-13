@@ -85,7 +85,6 @@ function Header() {
     ]
 
     useEffect(() => {
-        console.log(openLogin)
         document.body.style.overflowY = openLogin ? 'hidden' : 'visible'
     }, [openLogin])
 

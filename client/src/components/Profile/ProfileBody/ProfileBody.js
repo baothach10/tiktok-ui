@@ -104,13 +104,13 @@ function ProfileBody({ posts, playlists }) {
                 </p>
                 <div ref={bottomLineRef} className={cx('bottom-line')} style={{ transform: `translateX(${xCor}px)`, width: `${width}px` }}></div>
             </div>
-            {!!playlists && (
+            {!!playlists && playlists.length > 0 && (
                 <ProfilePlaylist playlists={playlists}/>
             )}
-            {!!posts && (
+            {!!posts && posts.length > 0 && (
                 <ProfilePost posts={posts} format={format}/>
             )}
-            {!!!posts && !!!playlists && (
+            {((!!!posts && !!!playlists) || (posts.length < 1 && playlists.length < 1)) && (
                 <ProfilePostEmpty isChosen={isChosen}/>
             )}
         </div>

@@ -6,6 +6,7 @@ const db = new Sequelize(process.env.MYSQL_DB, process.env.DB_USER, process.env.
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialect: 'mysql',
+  
 });
 
 // Test the connection

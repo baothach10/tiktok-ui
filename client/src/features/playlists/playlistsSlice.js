@@ -14,6 +14,6 @@ export const playlistsSlice = createSlice({
   }
 })
 
-
+export const selectPlaylistsById = (state, userID) => state.playlists.playlistsList.filter((playlist) => playlist.userID === userID)
 
 export default playlistsSlice.reducer

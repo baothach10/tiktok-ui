@@ -21,7 +21,7 @@ function ProfilePost({posts}) {
                                             <div className={cx('video-content')}>
                                                 <span>
                                                     <video
-                                                        src={post.video}
+                                                        src={process.env.REACT_APP_DB_URL_HEADER+post.video}
                                                         preload="true"
                                                         muted={true}
                                                         loop={true}

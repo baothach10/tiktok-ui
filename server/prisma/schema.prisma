@@ -23,7 +23,7 @@ model User {
   link     String?
   videos   Post[]   
   playlists Playlist[]
-  assignedAt DateTime @default(now())
+  createDate DateTime @default(now())
   @@map("users")
 } 
 
@@ -34,7 +34,7 @@ model Playlist {
   user     User      @relation(fields: [userID], references: [id])
   userID   Int
   posts    PlaylistPost[]
-  assignedAt DateTime @default(now())
+  createdDate DateTime @default(now())
   @@map("playlists")
 } 
 
@@ -51,7 +51,7 @@ model Post {
   user     User      @relation(fields: [userID], references: [id])
   userID   Int
   playlists PlaylistPost[]
-  assignedAt DateTime @default(now())
+  createdDate DateTime @default(now())
   @@map("posts")
 } 
 
@@ -60,7 +60,7 @@ model PlaylistPost {
   postID   Int
   playlist Playlist  @relation(fields: [playlistID], references: [id])
   playlistID Int
-  assignedAt DateTime @default(now())
+  createdDate DateTime @default(now())
   @@id([playlistID, postID])
   @@map("playlistPosts")
 }
