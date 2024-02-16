@@ -1,11 +1,12 @@
 import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEllipsisVertical, faKeyboard, faGlobe, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
-import 'tippy.js/dist/tippy.css'
+import { faEllipsisVertical, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames/bind';
 
 import styles from './Header.module.scss';
-import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import { Menu } from '~/components/Popper/Menu';
@@ -14,75 +15,20 @@ import Image from '~/components/Image';
 import Search from '~/layouts/Search';
 import config from '~/config'
 import Login from 'src/components/Login';
-import { useEffect, useRef, useState } from 'react';
+import { MENU_ITEMS, USER_MENU } from 'src/static/TextConfig';
 
 const cx = classNames.bind(styles)
-
-const MENU_ITEMS = [
-    {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
-        title: 'English',
-        children: {
-            title: 'Languages',
-            data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-            ]
-        }
-    },
-    {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        title: "Feedback and help",
-        to: '/feedback',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: "Keyboard shortcuts",
-    }
-]
 
 // Handle logic
 const handleMenuChange = (menuItem) => {
 
 }
 
-
-function Header() {
+function Header({user = {nickname: 'abc'}}) {
     const currentUser = false
     const [openLogin, setOpenLogin] = useState(false)
 
-    const userMenu = [
-        {
-            icon: <FontAwesomeIcon icon={faUser} />,
-            title: "View profile",
-            to: '/@apple',
-        },
-        {
-            icon: <FontAwesomeIcon icon={faCoins} />,
-            title: "Get coins",
-            to: '/coin',
-        },
-        {
-            icon: <FontAwesomeIcon icon={faGear} />,
-            title: "Settings",
-            to: '/settings',
-        },
-        ...MENU_ITEMS,
-        {
-            icon: <FontAwesomeIcon icon={faSignOut} />,
-            title: "Log out",
-            to: '/logout',
-            separate: true,
-        },
-    ]
+    const userMenu = USER_MENU(user)
 
     useEffect(() => {
         document.body.style.overflowY = openLogin ? 'hidden' : 'visible'

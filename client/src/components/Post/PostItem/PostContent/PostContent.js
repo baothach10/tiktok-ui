@@ -9,7 +9,7 @@ import ProgressBar from "./ProgressBar";
 const cx = classNames.bind(styles)
 
 function PostContent({ id, video, likes, comments, saved, share }) {
-    const [played, setPlayed] = useState(true);
+    const [played, setPlayed] = useState(false);
     const [muted, setMuted] = useState(true);
     const [videoUploadWidth, setVideoUploadWidth] = useState(0);
     const [videoUploadHeight, setVideoUploadHeight] = useState(0);
@@ -57,7 +57,8 @@ function PostContent({ id, video, likes, comments, saved, share }) {
                     preload="true"
                     muted={muted}
                     loop={true}
-                    controls={true}
+                    // Do có control nên sẽ bị flick lần đầu là mặc dù played là true nhưng video không bắt đầu, sau đó là bình thường
+                    // controls={true}
                     className={cx('video')}
                     onLoadedMetadata={handleLoadedMetadata}
                 />

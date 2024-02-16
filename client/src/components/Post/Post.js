@@ -9,7 +9,7 @@ const cx = classNames.bind(styles)
 function Post({ id, avatar, nickname, fullName, title, music, video, likes, comments, saved, share }) {
     return (
         <div id={`post-${id}`} className={cx('wrapper')}>
-            <a href="./profile">
+            <a href={`/@${nickname}`}>
                 <div id={`avatar-${id}`} className={cx('avatar-wrapper')}>
                     <img
                         src={avatar}

@@ -24,7 +24,7 @@ function PostHeader({ id, nickname, fullName, title, music }) {
         <div id={`header-${id}`} className={cx("header-wrapper")}>
 
             <div className={cx("name-wrapper")}>
-                <a href="/profile" className={cx('post-nickname')}>{nickname}</a>
+                <a href={`/@${nickname}`} className={cx('post-nickname')}>{nickname}</a>
                 <h4>{fullName}</h4>
             </div>
             <Button outline className={cx('follow-btn')}>Follow</Button>

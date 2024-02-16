@@ -1,0 +1,209 @@
+.input-title {
+  color: rgb(22, 24, 35);
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.login-option {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+  transition: color 250ms ease 0s;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    text-decoration: underline rgba(22, 24, 35);
+    color: rgba(22, 24, 35);
+  }
+}
+
+.phone-input-wrapper {
+  margin-bottom: 9px;
+}
+
+.phone-input-container {
+  background: rgba(22, 24, 35, 0.06);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  transition: all 0.3s ease 0s;
+  border-radius: 4px;
+  display: flex;
+}
+
+.phone-input-selector-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.phone-input-selector {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  padding: 12px;
+  height: 44px;
+  svg {
+    height: 14px;
+    width: 14px;
+  }
+  span {
+    font-size: 16px;
+    line-height: 1;
+    color: rgb(22, 24, 35);
+    margin-inline-end: 12px;
+  }
+  &::after {
+    content: '';
+    width: 1px;
+    height: 30px;
+    background: rgba(22, 24, 35, 0.12);
+    right: 0px;
+    left: unset;
+    position: absolute;
+  }
+}
+
+.phone-input {
+  position: relative;
+  flex: 1 1 0%;
+  width: 0px;
+  margin-bottom: 0px;
+  input {
+    background: transparent !important;
+  }
+}
+
+.phone-input-area {
+  border-radius: 2px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border: none rgba(22, 24, 35, 0.12);
+  padding-inline-start: 12px;
+  color: rgb(22, 24, 35);
+  line-height: 100%;
+  outline: none;
+  font-size: 16px;
+  height: 44px;
+  caret-color: rgb(254, 44, 85);
+  width: 100%;
+  padding-inline-end: unset;
+}
+
+.phone-input-icon {
+  right: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  height: 44px;
+  padding-inline-end: 16px;
+}
+
+.password-wrapper {
+  margin-bottom: 9px;
+}
+
+.password-container {
+  position: relative;
+  margin-bottom: 9px;
+  display: flex;
+}
+
+.password-input-area {
+  border-radius: 2px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  padding-inline: 12px 24px;
+  color: rgb(22, 24, 35);
+  line-height: 100%;
+  outline: none;
+  font-size: 16px;
+  height: 44px;
+  caret-color: rgb(254, 44, 85);
+  width: 100%;
+}
+
+.eye-icon {
+  right: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  height: 44px;
+  padding-inline-end: 16px;
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    line-height: 0;
+    margin-inline-start: 16px;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.5;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.options-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 9px;
+  span {
+    width: 1px;
+    height: 12px;
+    margin: 0px 16px;
+    background: rgba(22, 24, 35, 0.12);
+  }
+}
+
+.login-btn {
+    border-radius: 4px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: var(--primary);
+    min-width: 120px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    display: flex;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 6px 8px;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 21px;
+  &:disabled {
+    border: none;
+    color: rgba(22, 24, 35, 0.34);
+    background-color: rgba(22, 24, 35, 0.06);
+    pointer-events: none;
+  }
+}
+
+.error-msg {
+    font-size: 12px;
+    line-height: 15px;
+    color: rgb(255, 76, 58);
+}
+
+.alert {
+    border: 1px solid rgb(255, 76, 58);
+}
