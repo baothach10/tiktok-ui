@@ -5,7 +5,7 @@ import styles from './Login.module.scss';
 
 const cx = classNames.bind(styles)
 
-function LoginFooter({text, onClick}) {
+function LoginFooter({ text, onClick }) {
     return (
         <div className={cx('dialog-footer')}>
             <div data-e2e="bottom-text">{text['bottomText']}</div>

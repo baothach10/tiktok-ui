@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion, faKeyboard, faGlobe, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 import { AppleIcon, FacebookIcon, GoogleIcon, KaKaoTalkIcon, LineIcon, PersonIcon, QRIcon, TwitterIcon } from '~/components/Icons';
-import LoginPhone from "~/components/Login/LoginOptions/LoginPhone/LoginPhone";
+import LoginOptions from 'src/components/Login/LoginOptions';
+import ForgotPassword from 'src/components/Login/LoginOptions/ForgotPassword';
 
 
 // Text config for login
@@ -20,7 +21,7 @@ export const loginOptions = [
         title: 'Use phone / email / username',
         children: {
             title: 'Log in',
-            content: <LoginPhone />,
+            content: <LoginOptions/>,
         },
     },
     {

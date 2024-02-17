@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { ArrowIcon, BackIcon, CloseIcon } from "../Icons";
+import { BackIcon, CloseIcon } from "../Icons";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ import LoginPolicy from "./LoginPolicy";
 import LoginFooter from "./LoginFooter";
 import LoginContent from "./LoginContent";
 import { SETTINGS } from "src/static/TextConfig";
-import LoginPhone from "./LoginOptions/LoginPhone/LoginPhone";
+import { cloneElement } from "react";
 
 const cx = classNames.bind(styles)
 
@@ -18,6 +18,7 @@ function Login({ handleClose }) {
 
     const [history, setHistory] = useState([SETTINGS[index]])
     const current = history[history.length - 1]
+    const [title, setTitle] = useState(current.title)
 
     const handleType = (e) => {
         setHistory((prev) => [prev[0]])
@@ -31,7 +32,7 @@ function Login({ handleClose }) {
     return (
         <Modal>
             <div className={cx('dialog')}>
-                {!!current.options && (
+                {current.options && (
                     <>
                         <LoginContent
                             title={SETTINGS[index]['title']}
@@ -41,26 +42,27 @@ function Login({ handleClose }) {
                         <LoginPolicy />
                     </>
                 )}
-                {!!!current.options && (
+                {!current.options && (
                     <>
                         <LoginContent
-                            title={current.title}
+                            title={title}
                             onClick={setHistory}
                         >
-                            <LoginPhone />
+                            {cloneElement(current.content, { onClick: setTitle })}
                         </LoginContent>
                     </>
                 )}
+
                 <LoginFooter
                     text={SETTINGS[index]}
                     onClick={handleType}
                 />
             </div>
-        
 
-            {!!!current.options && (
+
+            {!current.options && (
                 <div className={cx('back-btn-container')} onClick={handleBack}>
-                    <BackIcon className={cx('back-btn')}/>
+                    <BackIcon className={cx('back-btn')} />
                 </div>
             )}
 

@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import PropTypes from 'prop-types';
-import { useState } from "react";
 
 import styles from './Login.module.scss';
 
@@ -12,7 +11,7 @@ function LoginContent({ title, options, children, onClick, onChange = defaultFn 
 
     const handleClick = (option) => {
         if (option.children) {
-            return <div>{option.children}</div>
+            return <>{option.children}</>
         }
     }
 

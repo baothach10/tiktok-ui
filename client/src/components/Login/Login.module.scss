@@ -1,6 +1,4 @@
-.dialog {
-}
-
+// Login Content
 .content-container {
   flex: 1 1 0%;
   overflow-y: scroll;
@@ -66,6 +64,8 @@
   text-align: center;
 }
 
+// Login Policy
+
 .policy-container {
   width: 100%;
   display: flex;
@@ -85,6 +85,8 @@
   width: 337px;
   text-align: center;
 }
+
+// Login Footer
 
 .link {
   color: rgba(22, 24, 35, 0.75);

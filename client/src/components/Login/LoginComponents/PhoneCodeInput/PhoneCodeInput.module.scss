@@ -1,0 +1,85 @@
+.code-container {
+  transition: all 0.3s ease 0s;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.code-input-container {
+  border-radius: 4px 0px 0px 4px;
+  position: relative;
+  margin-bottom: 9px;
+  flex: 1 1 0%;
+  width: 0px;
+  height: 47px;
+}
+
+.code-input {
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: 4px 0px 0px 4px;
+  padding-inline-start: 12px;
+  color: rgb(22, 24, 35);
+  line-height: 100%;
+  outline: none;
+  font-size: 16px;
+  height: 47px;
+  caret-color: rgb(254, 44, 85);
+  width: 100%;
+  padding-inline-end: unset;
+  &:focus {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    color: rgb(22, 24, 35) !important;
+  }
+}
+
+.alert-icon-container {
+  right: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  height: 44px;
+  padding-inline-end: 16px;
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.send-code-btn {
+  color: rgb(22, 24, 35);
+  font-family: TikTokFont;
+  font-weight: 600;
+  margin: 0px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-color: rgba(22, 24, 35, 0.12);
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 0px 4px 4px 0px;
+  border-inline-start-width: 1.5px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0px 16px;
+  height: 44px;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  &.disable {
+    color: rgba(22, 24, 35, 0.34);
+    cursor: not-allowed;
+  }
+}
+
+.error-msg {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgb(255, 76, 58);
+}
+
+.alert {
+  border: 1px solid rgb(255, 76, 58);
+  & input {
+    color: rgb(255, 76, 58);
+  }
+}

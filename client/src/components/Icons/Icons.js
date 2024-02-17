@@ -211,3 +211,7 @@ export const EyeCloseIcon = ({ width = '3.2rem', height = '3.2rem', className })
 export const BackIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
     <svg className={className} width={width} height={height} data-e2e="" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M4.58579 22.5858L20.8787 6.29289C21.2692 5.90237 21.9024 5.90237 22.2929 6.29289L23.7071 7.70711C24.0976 8.09763 24.0976 8.7308 23.7071 9.12132L8.82843 24L23.7071 38.8787C24.0976 39.2692 24.0976 39.9024 23.7071 40.2929L22.2929 41.7071C21.9024 42.0976 21.2692 42.0976 20.8787 41.7071L4.58579 25.4142C3.80474 24.6332 3.80474 23.3668 4.58579 22.5858Z"></path></svg>
 )
+
+export const AlertIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+    <svg className={className} width={width} height={height} data-e2e="" viewBox="0 0 48 48" fill="rgba(254, 44, 85, 1.0)" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M20.5522 6.91656C22.0988 4.28733 25.9011 4.28734 27.4477 6.91656L43.9509 34.9719C45.5194 37.6385 43.5968 41 40.5031 41H7.49679C4.40313 41 2.48051 37.6385 4.04906 34.9719L20.5522 6.91656ZM24 8.94464L7.49679 37H40.5031L24 8.94464ZM22 18C22 17.4477 22.4477 17 23 17H25C25.5522 17 26 17.4477 26 18V27C26 27.5523 25.5522 28 25 28H23C22.4477 28 22 27.5523 22 27V18ZM24 35C25.3807 35 26.5 33.8807 26.5 32.5C26.5 31.1193 25.3807 30 24 30C22.6192 30 21.5 31.1193 21.5 32.5C21.5 33.8807 22.6192 35 24 35Z"></path></svg>
+)

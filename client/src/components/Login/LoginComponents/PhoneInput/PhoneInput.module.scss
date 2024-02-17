@@ -1,0 +1,99 @@
+.phone-input-wrapper {
+  margin-bottom: 9px;
+}
+
+.phone-input-container {
+  background: rgba(22, 24, 35, 0.06);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  transition: all 0.3s ease 0s;
+  border-radius: 4px;
+  display: flex;
+}
+
+.phone-input-selector-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.phone-input-selector {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  padding: 12px;
+  height: 44px;
+  svg {
+    height: 14px;
+    width: 14px;
+  }
+  span {
+    font-size: 16px;
+    line-height: 1;
+    color: rgb(22, 24, 35);
+    margin-inline-end: 12px;
+  }
+  &::after {
+    content: '';
+    width: 1px;
+    height: 30px;
+    background: rgba(22, 24, 35, 0.12);
+    right: 0px;
+    left: unset;
+    position: absolute;
+  }
+}
+
+.phone-input {
+  position: relative;
+  flex: 1 1 0%;
+  width: 0px;
+  margin-bottom: 0px;
+  input {
+    background: transparent !important;
+  }
+}
+
+.phone-input-area {
+  border-radius: 2px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border: none rgba(22, 24, 35, 0.12);
+  padding-inline-start: 12px;
+  color: rgb(22, 24, 35);
+  line-height: 100%;
+  outline: none;
+  font-size: 16px;
+  height: 44px;
+  caret-color: rgb(254, 44, 85);
+  width: 100%;
+  padding-inline-end: unset;
+  &:focus {
+    border: 1px solid rgba(22, 24, 35, 0.12) !important;
+    color: rgb(22, 24, 35) !important;
+  }
+}
+
+.phone-input-icon {
+  right: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  height: 44px;
+  padding-inline-end: 16px;
+}
+
+.error-msg {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgb(255, 76, 58);
+}
+
+.alert {
+  border: 1px solid rgb(255, 76, 58);
+  & input {
+    color: rgb(255, 76, 58);
+  }
+}

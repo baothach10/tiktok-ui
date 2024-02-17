@@ -1,0 +1,25 @@
+.login-option {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+  transition: color 250ms ease 0s;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    text-decoration: underline rgba(22, 24, 35);
+    color: rgba(22, 24, 35);
+  }
+}
+.options-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 9px;
+  span {
+    width: 1px;
+    height: 12px;
+    margin: 0px 16px;
+    background: rgba(22, 24, 35, 0.12);
+  }
+}
