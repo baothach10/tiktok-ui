@@ -1,0 +1,39 @@
+.link {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.dialog-footer {
+  color: rgb(22, 24, 35);
+  height: 64px;
+  border-top: 0.5px solid rgba(22, 24, 35, 0.12);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 15px;
+  line-height: 18px;
+  width: 483px;
+}
+
+.btn-container {
+  color: rgb(254, 44, 85);
+  font-weight: 600;
+  font-size: 12px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.btn-content {
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgb(254, 44, 85);
+}

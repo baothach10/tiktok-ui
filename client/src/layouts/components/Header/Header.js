@@ -14,7 +14,7 @@ import { InboxIcon, MessageIcon, PlusIcon } from 'src/components/Icons/Icons';
 import Image from '~/components/Image';
 import Search from '~/layouts/Search';
 import config from '~/config'
-import Login from 'src/components/Login';
+import Login from 'src/components/LoginSignUp';
 import { MENU_ITEMS, USER_MENU } from 'src/static/TextConfig';
 
 const cx = classNames.bind(styles)
@@ -24,7 +24,7 @@ const handleMenuChange = (menuItem) => {
 
 }
 
-function Header({user = {nickname: 'abc'}}) {
+function Header({ user = { nickname: 'abc' } }) {
     const currentUser = false
     const [openLogin, setOpenLogin] = useState(false)
 
