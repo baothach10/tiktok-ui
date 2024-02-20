@@ -5,12 +5,12 @@ import { useState } from "react";
 import PropTypes from 'prop-types'
 
 import styles from './LoginSignUp.module.scss'
-import LoginPolicy from "./LoginComponents/LoginPolicy";
-import LoginFooter from "./LoginComponents/LoginFooter";
-import LoginContent from "./LoginComponents/LoginContent";
+import LoginPolicy from "./Components/LoginPolicy";
+import LoginFooter from "./Components/LoginFooter";
+import LoginContent from "./Components/LoginContent";
 import { SETTINGS } from "src/static/TextConfig";
 import { cloneElement } from "react";
-import TextSeparator from "./LoginComponents/TextSeparator";
+import TextSeparator from "./Components/TextSeparator";
 import Button from "../Button";
 
 const cx = classNames.bind(styles)

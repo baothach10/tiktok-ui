@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { useForm } from "react-hook-form";
 
 import styles from './SignUpOptions.module.scss'
-import InputTitle from "../LoginComponents/InputTitle";
-import PhoneCodeInput from "../LoginComponents/PhoneCodeInput";
-import SubmitButton from "../LoginComponents/SubmitButton";
-import DateMonthYearSelector from "../LoginComponents/DateMonthYearSelector";
-import EmailInput from "../LoginComponents/EmailInput";
-import PasswordInput from "../LoginComponents/PasswordInput";
-import CheckboxComponent from "../LoginComponents/CheckboxComponent";
+import InputTitle from "../Components/InputTitle";
+import PhoneCodeInput from "../Components/PhoneCodeInput";
+import SubmitButton from "../Components/SubmitButton";
+import DateMonthYearSelector from "../Components/DateMonthYearSelector";
+import EmailInput from "../Components/EmailInput";
+import PasswordInput from "../Components/PasswordInput";
+import CheckboxComponent from "../Components/CheckboxComponent";
 
 const cx = classNames.bind(styles)
 
@@ -30,8 +30,8 @@ function SignUpEmail({ onClick }) {
 
     const isDisabled = () => {
         return (
-            !errors?.phoneCode?.type && 
-            !errors?.password?.type && 
+            !errors?.phoneCode?.type &&
+            !errors?.password?.type &&
             !errors?.emailUsername?.type &&
             watch('daySelector') &&
             watch('monthSelector') &&

@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types'
 
-import PhoneInput from "../LoginComponents/PhoneInput";
-import PhoneCodeInput from "../LoginComponents/PhoneCodeInput";
-import PasswordInput from "../LoginComponents/PasswordInput";
-import InputTitle from "../LoginComponents/InputTitle";
-import LoginFooter from "../LoginComponents/InputFooter";
-import SubmitButton from "../LoginComponents/SubmitButton";
+import PhoneInput from "../Components/PhoneInput";
+import PhoneCodeInput from "../Components/PhoneCodeInput";
+import PasswordInput from "../Components/PasswordInput";
+import InputTitle from "../Components/InputTitle";
+import LoginFooter from "../Components/InputFooter";
+import SubmitButton from "../Components/SubmitButton";
 
 function LoginPhone({ password = false, onClick }) {
     const {

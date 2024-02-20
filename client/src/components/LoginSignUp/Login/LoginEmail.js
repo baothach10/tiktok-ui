@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types'
 
-import EmailInput from "../LoginComponents/EmailInput";
-import PasswordInput from "../LoginComponents/PasswordInput";
-import InputTitle from "../LoginComponents/InputTitle";
-import LoginFooter from "../LoginComponents/InputFooter";
-import SubmitButton from "../LoginComponents/SubmitButton";
+import EmailInput from "../Components/EmailInput";
+import PasswordInput from "../Components/PasswordInput";
+import InputTitle from "../Components/InputTitle";
+import LoginFooter from "../Components/InputFooter";
+import SubmitButton from "../Components/SubmitButton";
 
 function LoginEmail({ onClick }) {
     const {

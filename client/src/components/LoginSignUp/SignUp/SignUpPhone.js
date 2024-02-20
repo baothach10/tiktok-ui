@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 import styles from './SignUpOptions.module.scss'
 import { useForm } from "react-hook-form";
-import InputTitle from "../LoginComponents/InputTitle";
-import PhoneInput from "../LoginComponents/PhoneInput";
-import PhoneCodeInput from "../LoginComponents/PhoneCodeInput";
-import SubmitButton from "../LoginComponents/SubmitButton";
-import DateMonthYearSelector from "../LoginComponents/DateMonthYearSelector";
+import InputTitle from "../Components/InputTitle";
+import PhoneInput from "../Components/PhoneInput";
+import PhoneCodeInput from "../Components/PhoneCodeInput";
+import SubmitButton from "../Components/SubmitButton";
+import DateMonthYearSelector from "../Components/DateMonthYearSelector";
 
 const cx = classNames.bind(styles)
 

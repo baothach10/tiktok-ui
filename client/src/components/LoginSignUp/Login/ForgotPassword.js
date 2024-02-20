@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types'
 
-import PhoneInput from "../LoginComponents/PhoneInput";
-import EmailInput from "../LoginComponents/EmailInput";
-import PhoneCodeInput from "../LoginComponents/PhoneCodeInput";
-import PasswordInput from "../LoginComponents/PasswordInput";
-import InputTitle from "../LoginComponents/InputTitle";
-import SubmitButton from "../LoginComponents/SubmitButton";
+import PhoneInput from "../Components/PhoneInput";
+import EmailInput from "../Components/EmailInput";
+import PhoneCodeInput from "../Components/PhoneCodeInput";
+import PasswordInput from "../Components/PasswordInput";
+import InputTitle from "../Components/InputTitle";
+import SubmitButton from "../Components/SubmitButton";
 
 
 function ForgotPassword({ type, onClick }) {
