@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 
 import SignUpPhone from "./SignUpPhone";
@@ -6,8 +6,13 @@ import SignUpEmail from "./SignUpEmail";
 
 
 function SignUpOptions({ onClick }) {
-    const [type, setType] = useState(0); // 0 1 2 3
-    onClick('Sign up')
+    // 2: Sign up with email
+    // 1: Sign up with phone
+    const [type, setType] = useState(0);
+    useEffect(() => {
+        onClick('Sign up')
+    }, [onClick])
+
     return type === 2 ? <SignUpEmail onClick={setType} /> : <SignUpPhone onClick={setType} />
 }
 

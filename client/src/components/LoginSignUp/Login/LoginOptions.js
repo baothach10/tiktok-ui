@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 
 import LoginPhone from "./LoginPhone";
@@ -8,7 +8,10 @@ import ForgotPassword from "./ForgotPassword";
 
 function LoginOptions({ onClick }) {
     const [type, setType] = useState(0)
-    onClick('Log in')
+
+    useEffect(() => {
+        onClick('Log in')
+    })
     
     if (type === 2) {
         // Login with phone number and password

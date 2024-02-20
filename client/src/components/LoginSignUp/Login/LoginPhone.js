@@ -87,7 +87,7 @@ function LoginPhone({ password = false, onClick }) {
 
 LoginPhone.propTypes = {
     onClick: PropTypes.func,
-    password: PropTypes.string.isRequired
+    password: PropTypes.bool
 }
 
 export default LoginPhone;
