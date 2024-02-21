@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/Users.js')
-const Post = require('../models/Posts.js')
-const Playlist = require('../models/Playlists.js');
-const db = require('../database.js');
+// const db = require('../database.js');
 // const { sequelize } = require('../models');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient()
 
 
-
+// Sequelize
 // router.get('/', async (req, res) => {
 //     await db.sync();
 //     res.end('All models were synchronized successfully.')
