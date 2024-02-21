@@ -22,13 +22,13 @@ function ProfilePostEmpty({isChosen}) {
             description: 'Videos you liked will appear here',
         }
     }
-
+    
     return (
         <div className={cx('main-detail-wrapper')}>
             <div className={cx('main-detail-container')}>
                 {(isChosen === 'video-feed-2') ? <FlagIcon className={cx('logo')} /> : <PersonIcon className={cx('logo')} />}
-                <p className={cx('title')}>{content[isChosen]['title']}</p>
-                <p className={cx('description')}>{content[isChosen]['description']}</p>
+                <p className={cx('title')}>{content[isChosen].title}</p>
+                <p className={cx('description')}>{content[isChosen].descr}</p>
             </div>
         </div>
     );

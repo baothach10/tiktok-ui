@@ -4,6 +4,7 @@ import { faCircleQuestion, faKeyboard, faGlobe, faUser, faCoins, faGear, faSignO
 import { AppleIcon, FacebookIcon, GoogleIcon, KaKaoTalkIcon, LineIcon, PersonIcon, QRIcon, TwitterIcon } from '~/components/Icons';
 import LoginOptions from 'src/components/LoginSignUp/Login';
 import SignUpOptions from 'src/components/LoginSignUp/SignUp';
+import { EmbedIcon } from 'src/components/Icons';
 
 
 // Text config for login

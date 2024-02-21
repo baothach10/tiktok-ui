@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './ProfilePost.module.scss'
 import { PlayIcon } from "src/components/Icons";
-import { format } from "~/pages/Profile";
+import { format } from "../../ProfilePage";
 
 const cx = classNames.bind(styles)
 

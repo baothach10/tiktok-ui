@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import styles from './SuggestedAccountPreview.module.scss'
 import Button from "~/components/Button";
-import { format } from "~/pages/Profile";
+import { format } from "~/components/Profile/ProfilePage";
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +27,7 @@ function SuggestedAccountPreview({ user }) {
                 </p>
                 <p className={cx('full-name')}>{user.fullName}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>{format(user.followers)}</strong>
+                    <strong className={cx('value')}>{format(user.followers)} </strong>
                     <span className={cx('label')}>Followers</span>
                     <strong className={cx('value')}>{format(user.likes)} </strong>
                     <span className={cx('label')}>Likes</span>

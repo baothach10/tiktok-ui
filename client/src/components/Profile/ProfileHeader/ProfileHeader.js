@@ -7,7 +7,7 @@ import styles from './ProfileHeader.module.scss'
 import Button from "~/components/Button";
 import { DeniedIcon, EmailIcon, EmbedIcon, FacebookIcon, FlagStaffIcon, LinkIcon, LinkIconRound, LinkedInIcon, MoreIcon, RedditIcon, ShareIcon, TelegramIcon, TwitterIcon, WhatsappIcon, ExpandIcon, LineIcon, PinterestIcon } from "~/components/Icons";
 import { Menu } from '~/components/Popper/Menu';
-import { format } from "~/pages/Profile";
+import { format } from "../ProfilePage";
 
 const cx = classNames.bind(styles)
 
