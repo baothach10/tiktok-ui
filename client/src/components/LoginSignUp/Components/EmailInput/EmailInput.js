@@ -14,7 +14,7 @@ function EmailInput({ error, register, placeholder }) {
                     <input
                         className={cx('email-input-area')}
                         placeholder={placeholder}
-                        {...register("emailUsername",
+                        {...register("email",
                         {
                             pattern: {
                                 value: /^.+@.+$/,

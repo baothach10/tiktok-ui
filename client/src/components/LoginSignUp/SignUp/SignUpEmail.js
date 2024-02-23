@@ -32,11 +32,11 @@ function SignUpEmail({ onClick }) {
         return (
             !errors?.phoneCode?.type &&
             !errors?.password?.type &&
-            !errors?.emailUsername?.type &&
+            !errors?.email?.type &&
             watch('daySelector') &&
             watch('monthSelector') &&
             watch('yearSelector') &&
-            watch('emailUsername') &&
+            watch('email') &&
             watch('password') &&
             watch('phoneCode')
         ) ? false : true
@@ -67,7 +67,7 @@ function SignUpEmail({ onClick }) {
                 <EmailInput
                     register={register}
                     placeholder={"Email address"}
-                    error={errors.emailUsername}
+                    error={errors.email}
                 />
 
                 <PasswordInput

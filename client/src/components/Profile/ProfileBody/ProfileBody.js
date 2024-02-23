@@ -14,7 +14,6 @@ const cx = classNames.bind(styles)
 
 function ProfileBody({ nickname, posts, playlists }) {
 
-
     const postRef = useRef(null)
     const favoriteRef = useRef(null)
     const likedRef = useRef(null)
@@ -28,7 +27,7 @@ function ProfileBody({ nickname, posts, playlists }) {
         setWidth(postRef?.current?.offsetWidth);
         setIsChosen(postRef?.current?.id);
         setXCor(0)
-    }, [nickname])
+    }, [])
 
     useEffect(() => {
         switch (isChosen) {
@@ -50,7 +49,7 @@ function ProfileBody({ nickname, posts, playlists }) {
             default:
                 console.log('error choosing tab')
         }
-    }, [isChosen, nickname])
+    }, [isChosen])
 
     const handleClick = (ref) => {
         setXCor(ref?.current?.offsetLeft);
@@ -105,7 +104,7 @@ function ProfileBody({ nickname, posts, playlists }) {
                 <div ref={bottomLineRef} className={cx('bottom-line')} style={{ transform: `translateX(${xCor}px)`, width: `${width}px` }}></div>
             </div>
             {!!playlists && playlists.length > 0 && (
-                <ProfilePlaylist playlists={playlists} />
+                <ProfilePlaylist playlists={playlists} posts={posts} />
             )}
             {!!posts && posts.length > 0 && (
                 <ProfilePost posts={posts} format={format} />

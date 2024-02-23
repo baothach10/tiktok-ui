@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
+import { playlistAPI } from 'src/services/userAPI';
 
-const initialState = await fetch('http://localhost:4000/api/playlists').then(res => res.json());
+const initialState = {
+  playlist: await playlistAPI()
+};
 
 export const playlistsSlice = createSlice({
   name: 'playlists',
   initialState: {
-    playlistsList: initialState,
+    playlistsList: initialState.playlist,
   },
   reducers: {
     add: (state, action) => {

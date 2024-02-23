@@ -12,20 +12,27 @@ datasource db {
 
 model User {
   id       Int       @id @default(autoincrement())
+  account  String
+  hashedPassword String
   avatar   String    @default("server/public/assets/images/placeholder-user.png")
   nickname String
   fullName String
-  checked  Boolean   @default(false)
-  following Int      @default(0)
-  followers Int      @default(0)
-  likes    Int       @default(0)
   bio      String?
   link     String?
-  videos   Post[]   
-  playlists Playlist[]
   createDate DateTime @default(now())
+  posts    Post[]   
+  playlists Playlist[]
+  comments  Comment[]
+  sentMessages Message[] @relation("send")
+  receivedMessages Message[] @relation("receive")
+  followers Follow[] @relation("follower")
+  following Follow[] @relation("following")
+  messageReactions MessageReaction[]
+  commentReactions CommentReaction[]
+  likedPost UserLikedPost[]
+  savedPost UserSavedPost[]
   @@map("users")
-} 
+}
 
 model Playlist {
   id       Int       @id @default(autoincrement())
@@ -41,19 +48,63 @@ model Playlist {
 model Post {
   id       Int       @id @default(autoincrement())
   title    String
-  music    String    @default("")
+  music    String?
   video    String
-  likes    Int       @default(0)
-  comments Int       @default(0)
-  saved    Int       @default(0)
   share    Int       @default(0)
   views    Int       @default(0)
+  createdDate DateTime @default(now())
   user     User      @relation(fields: [userID], references: [id])
   userID   Int
   playlists PlaylistPost[]
-  createdDate DateTime @default(now())
+  comments Comment[]
+  userLiked UserLikedPost[]
+  userSaved UserSavedPost[]
   @@map("posts")
 } 
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  content     String
+  createDate  DateTime @default(now())
+  user        User     @relation(fields: [userID], references: [id])
+  userID      Int
+  post        Post     @relation(fields: [postID], references: [id])
+  postID      Int
+  reactions   CommentReaction[]
+  @@map("comments")
+}
+
+model Reaction {
+  id          Int     @id @default(autoincrement())
+  name        String
+  emoji       String
+  messages    MessageReaction[]
+  comments    CommentReaction[]
+  @@map("reactions")
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  content     String
+  createdDate DateTime @default(now())
+  receiver    User     @relation(name: "receive", fields: [receiverID], references: [id])
+  receiverID  Int
+  sender      User     @relation(name: "send", fields: [senderID], references: [id])
+  senderID    Int
+  reactions   MessageReaction[]
+  // @@id([receiverID, senderID])
+  @@map("messages")
+}
+
+model Follow {
+  follower    User    @relation(name: "follower", fields: [followerID], references: [id])
+  followerID  Int
+  following   User     @relation(name: "following", fields: [followingID], references: [id])
+  followingID Int
+  createDate  DateTime @default(now())
+  @@id([followerID, followingID])
+  @@map("follows")
+}
 
 model PlaylistPost {
   post     Post     @relation(fields: [postID], references: [id])
@@ -65,3 +116,46 @@ model PlaylistPost {
   @@map("playlistPosts")
 }
 
+model MessageReaction {
+  message Message @relation(fields: [messageID], references: [id])
+  messageID Int
+  reaction  Reaction  @relation(fields: [reactionID], references: [id])
+  reactionID  Int
+  user      User      @relation(fields: [userID], references: [id])
+  userID    Int
+  createDate DateTime @default(now())
+  @@id([messageID, reactionID, userID])
+  @@map("messageReactions")
+}
+
+model CommentReaction {
+  comment Comment @relation(fields: [commentID], references: [id])
+  commentID Int
+  reaction Reaction @relation(fields: [reactionID], references: [id])
+  reactionID Int
+  user    User      @relation(fields: [userID], references: [id])
+  userID Int
+  createDate  DateTime  @default(now())
+  @@id([commentID, reactionID, userID])
+  @@map("commentReactions")
+}
+
+model UserLikedPost {
+  user  User  @relation(fields: [userID], references: [id])
+  userID  Int
+  post  Post  @relation(fields: [postID], references: [id])
+  postID  Int
+  createDate  DateTime  @default(now())
+  @@id([userID, postID])
+  @@map("userLikedPosts")
+}
+
+model UserSavedPost {
+  user  User  @relation(fields: [userID], references: [id])
+  userID  Int
+  post  Post  @relation(fields: [postID], references: [id])
+  postID  Int
+  createDate  DateTime  @default(now())
+  @@id([userID, postID])
+  @@map("userSavedPosts")
+}

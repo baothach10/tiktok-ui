@@ -1,16 +1,14 @@
 import classNames from "classnames/bind";
 import PropTypes from 'prop-types';
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { createSelector } from 'reselect';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 import styles from './ProfilePage.module.scss';
 import ProfileBody from "./ProfileBody";
 
 import ProfileHeader from "./ProfileHeader";
-import { selectAllPosts, selectPostsById } from "~/features/posts/postsSlice";
-import { selectUserByNickname } from "~/features/users/usersSlice";
-import { selectPlaylistsById } from "~/features/playlists/playlistsSlice";
+import { profileAPI } from "src/services/userAPI";
 
 const cx = classNames.bind(styles)
 
@@ -29,17 +27,12 @@ export function format(number) {
 function ProfilePage() {
 
     const { nickname } = useParams()
-    const currentUser = useSelector((state) => selectUserByNickname(state, nickname.slice(1,)))
+    const [currentUser, setCurrentUser] = useState()
 
-    const selectRelatedData = createSelector(
-        (state) => state,
-        (state) => ({
-            currentPosts: selectPostsById(state, currentUser.id),
-            currentPlaylists: selectPlaylistsById(state, currentUser.id),
-        })
-    );
-
-    const { currentPosts, currentPlaylists } = useSelector(selectRelatedData);
+    useEffect(() => {
+        profileAPI(nickname.slice(1,))
+            .then(response => setCurrentUser(response.data))
+    }, [nickname])
 
     return (
         <div className={cx('wrapper')}>
@@ -47,22 +40,22 @@ function ProfilePage() {
                 <div className={cx('container')}>
                     <div className={cx('profile-header')}>
                         {<ProfileHeader
-                            avatar={currentUser.avatar}
-                            nickname={currentUser.nickname}
-                            fullName={currentUser.fullName}
-                            checked={currentUser.checked}
-                            following={currentUser.following}
-                            followers={currentUser.followers}
-                            likes={currentUser.likes}
-                            bio={currentUser.bio}
-                            link={currentUser.link}
+                            avatar={currentUser?.user?.avatar}
+                            nickname={currentUser?.user?.nickname}
+                            fullName={currentUser?.user?.fullName}
+                            checked={currentUser?.user?.checked}
+                            following={currentUser?.user?.following.length}
+                            followers={currentUser?.user?.followers.length}
+                            likes={currentUser?.user?.likes}
+                            bio={currentUser?.user?.bio}
+                            link={currentUser?.user?.link}
                         />}
                     </div>
                     <div className={cx('profile-body')}>
                         {<ProfileBody
-                            posts={currentPosts}
-                            playlists={currentPlaylists}
-                            nickname={currentUser.nickname}
+                            posts={currentUser?.posts}
+                            playlists={currentUser?.playlists}
+                            nickname={currentUser?.user?.nickname}
                         />}
                     </div>
                 </div>

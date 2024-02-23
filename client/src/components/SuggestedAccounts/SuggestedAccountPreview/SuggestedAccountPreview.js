@@ -27,7 +27,7 @@ function SuggestedAccountPreview({ user }) {
                 </p>
                 <p className={cx('full-name')}>{user.fullName}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>{format(user.followers)} </strong>
+                    <strong className={cx('value')}>{format(user.followers?.length)} </strong>
                     <span className={cx('label')}>Followers</span>
                     <strong className={cx('value')}>{format(user.likes)} </strong>
                     <span className={cx('label')}>Likes</span>

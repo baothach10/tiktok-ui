@@ -8,13 +8,12 @@ import PostHeader from "./PostHeader/PostHeader";
 const cx = classNames.bind(styles)
 
 
-function PostItem({ id, nickname, fullName, title, music, video, likes, comments, saved, share }) {
+function PostItem({ id, user, title, music, video, likes, comments, saved, share }) {
     return (
         <div id={`post-item-${id}`} className={cx("post-item-wrapper")}>
             <PostHeader
                 id={id}
-                nickname={nickname}
-                fullName={fullName}
+                user={user}
                 title={title}
                 music={music}
             />
@@ -32,8 +31,7 @@ function PostItem({ id, nickname, fullName, title, music, video, likes, comments
 
 PostItem.propTypes = {
     id: PropTypes.number.isRequired,
-    nickname: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     music: PropTypes.string.isRequired,
     video: PropTypes.string.isRequired,

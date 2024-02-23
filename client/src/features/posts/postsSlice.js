@@ -1,11 +1,11 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
-
-const initialState = await fetch('http://localhost:4000/api/posts').then(res => res.json());
+import axios from 'axios';
+import { postAPI } from 'src/services/postAPI';
 
 export const postsSlice = createSlice({
   name: 'posts',
   initialState: {
-    postsList: initialState,
+    postsList: await postAPI(),
   },
   reducers: {
       add: {

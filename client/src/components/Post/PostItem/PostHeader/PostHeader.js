@@ -1,6 +1,8 @@
 import classNames from "classnames/bind";
 import styles from './PostHeader.module.scss';
 import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Button from "~/components/Button";
 import { useState } from "react";
@@ -8,7 +10,7 @@ import { MusicIcon } from "~/components/Icons";
 
 const cx = classNames.bind(styles)
 
-function PostHeader({ id, nickname, fullName, title, music }) {
+function PostHeader({ id, user, title, music }) {
     const [expanded, setExpanded] = useState(false)
     const handleClick = () => {
         setExpanded(pre => !pre)
@@ -24,8 +26,11 @@ function PostHeader({ id, nickname, fullName, title, music }) {
         <div id={`header-${id}`} className={cx("header-wrapper")}>
 
             <div className={cx("name-wrapper")}>
-                <a href={`/@${nickname}`} className={cx('post-nickname')}>{nickname}</a>
-                <h4>{fullName}</h4>
+                <a href={`/@${user.nickname}`} className={cx('post-nickname')}>
+                    {user.nickname}
+                    {(user.checked) && <FontAwesomeIcon className={cx('checked')} icon={faCheckCircle} />}
+                </a>
+                <h4>{user.fullName}</h4>
             </div>
             <Button outline className={cx('follow-btn')}>Follow</Button>
 
@@ -58,7 +63,7 @@ function PostHeader({ id, nickname, fullName, title, music }) {
                 <a href={'/'}>
                     <MusicIcon className={cx('music-link-icon')} />
                     <div className={cx('music-link-title')}>
-                        original music - {fullName}
+                        original music - {user.fullName}
                     </div>
                 </a>
             </div>
@@ -68,8 +73,7 @@ function PostHeader({ id, nickname, fullName, title, music }) {
 
 PostHeader.propTypes = {
     id: PropTypes.number.isRequired,
-    nickname: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     music: PropTypes.string.isRequired,
 }

@@ -1,22 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = await fetch('http://localhost:4000/api/users').then(res => res.json());
-
-// const testing = await fetch(process.env.REACT_APP_DB_URL_HEADER+'api/users', {
-//   method: 'POST',
-//   // headers: {'Content-Type':'application/json'},
-//   body: {
-//     name: 'Google'
-//   }
-// })
-
-// console.log(testing)
+import { userAPI } from 'src/services/userAPI';
 
 
 export const usersSlice = createSlice({
   name: 'users',
   initialState: {
-    usersList: initialState,
+    usersList: await userAPI(),
   },
   reducers: {
     add: (state, action) => {

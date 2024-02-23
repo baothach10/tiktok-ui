@@ -11,11 +11,11 @@ function PostSidebar({ likes, comments, saved, share }) {
         <div className={cx('wrapper')}>
             <button className={cx('btn')}>
                 <span className={cx('icon')}><HeartIcon /></span>
-                <strong className={cx('number')}>{comments}</strong>
+                <strong className={cx('number')}>{likes}</strong>
             </button>
             <button className={cx('btn')}>
                 <span className={cx('icon')}><MessageIcon2 /></span>
-                <strong className={cx('number')}>{likes}</strong>
+                <strong className={cx('number')}>{comments}</strong>
             </button>
             <button className={cx('btn')}>
                 <span className={cx('icon')}><FlagIconSolid /></span>

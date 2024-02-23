@@ -4,15 +4,17 @@ import { useSelector } from 'react-redux';
 
 import styles from './SuggestedAccounts.module.scss'
 import SuggestedAccountItem from './SuggestedAccountItem';
+import { userAPI } from 'src/services/userAPI';
 
 const cx = classNames.bind(styles)
 
-function SuggestedAccounts({label}) {
-    const users = useSelector(state => state.users.usersList)
+const users = await userAPI()
+ 
+function SuggestedAccounts({ label }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            {users.map(user => {
+            {users.data?.map(user => {
                 return (
                     <SuggestedAccountItem
                         key={user.id}

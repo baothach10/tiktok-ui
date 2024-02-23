@@ -24,7 +24,14 @@ function ForgotPassword({ type, onClick }) {
     }
 
     const isDisabled = () => {
-        return (!errors?.password?.type && !!watch('password')) ? false : true
+        return (
+            !errors?.password?.type && 
+            !errors?.email?.type &&
+            !errors?.phoneCode?.type &&
+            !!watch('password') &&
+            !!watch('email') &&
+            !!watch('phoneCode')
+        ) ? false : true
     }
 
 
@@ -56,7 +63,7 @@ function ForgotPassword({ type, onClick }) {
                     <EmailInput
                         register={register}
                         placeholder={"Email or username"}
-                        error={errors.emailUsername}
+                        error={errors.email}
                     />
                 </>
             )}

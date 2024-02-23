@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types'
 
-import EmailInput from "../Components/EmailInput";
 import PasswordInput from "../Components/PasswordInput";
 import InputTitle from "../Components/InputTitle";
 import LoginFooter from "../Components/InputFooter";
 import SubmitButton from "../Components/SubmitButton";
+import axios from "axios";
+import TextInput from "../Components/TextInput.js/TextInput";
+import { useState } from "react";
 
 function LoginEmail({ onClick }) {
     const {
@@ -17,8 +19,31 @@ function LoginEmail({ onClick }) {
         mode: "onBlur",
     })
 
+    const [user, setUser] = useState(null)
+
+    const sendLoginData = async (userData) => {
+        try {
+            const response = await axios.post(process.env.REACT_APP_DB_URL_HEADER + 'api/login',
+                {
+                    params:
+                    {
+                       user: userData
+                    }
+                })
+            if (!!response.data) {
+                setUser(response.data)
+            } else {
+                console.error('Authentication Error: Username, Email does not exist or wrong password')
+            }
+        } catch (error) {
+            console.error('Sending Login Data Error: ' + error)
+        }
+    }
+
+    console.log(user)
+
     const onSubmit = (data) => {
-        console.log(data)
+        sendLoginData(data)
     }
 
     const isDisabled = () => {
@@ -33,10 +58,10 @@ function LoginEmail({ onClick }) {
                 onClick={() => onClick(1)}
             />
 
-            <EmailInput
+            <TextInput
                 register={register}
-                error={errors.emailUsername}
-                placeholder={"Email or username"}
+                name={'emailUsername'}
+                placeholder={'Email or username'}
             />
 
             <PasswordInput

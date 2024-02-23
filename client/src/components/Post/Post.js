@@ -6,13 +6,13 @@ import PostItem from "src/components/Post/PostItem/PostItem";
 
 const cx = classNames.bind(styles)
 
-function Post({ id, avatar, nickname, fullName, title, music, video, likes, comments, saved, share }) {
+function Post({ id, user, title, music, video, likes, comments, saved, share }) {
     return (
         <div id={`post-${id}`} className={cx('wrapper')}>
-            <a href={`/@${nickname}`}>
+            <a href={`/@${user.nickname}`}>
                 <div id={`avatar-${id}`} className={cx('avatar-wrapper')}>
                     <img
-                        src={avatar}
+                        src={user.avatar}
                         alt="User Avatar"
                         className={cx('user-avatar')}
                     />
@@ -20,8 +20,7 @@ function Post({ id, avatar, nickname, fullName, title, music, video, likes, comm
             </a>
             <PostItem
                 id={id}
-                nickname={nickname}
-                fullName={fullName}
+                user={user}
                 title={title}
                 music={music}
                 video={video}
@@ -36,9 +35,7 @@ function Post({ id, avatar, nickname, fullName, title, music, video, likes, comm
 
 Post.propTypes = {
     id: PropTypes.number.isRequired,
-    avatar: PropTypes.string.isRequired,
-    nickname: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     music: PropTypes.string.isRequired,
     video: PropTypes.string.isRequired,
