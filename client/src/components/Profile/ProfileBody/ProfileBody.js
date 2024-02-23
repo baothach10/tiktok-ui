@@ -27,7 +27,7 @@ function ProfileBody({ nickname, posts, playlists }) {
         setWidth(postRef?.current?.offsetWidth);
         setIsChosen(postRef?.current?.id);
         setXCor(0)
-    }, [])
+    }, [nickname])
 
     useEffect(() => {
         switch (isChosen) {
