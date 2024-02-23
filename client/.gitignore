@@ -14,10 +14,8 @@
 # production
 /build
 
-# Fake data
-/src/assets/media
-checklist.txt
-/src/fakedata.js
+# package-lock
+package-lock.json
 
 # misc
 .DS_Store
